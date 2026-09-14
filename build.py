@@ -32,8 +32,8 @@ PERSON = {
     "address": {"@type": "PostalAddress", "addressLocality": "Brooklyn",
                 "addressRegion": "NY", "addressCountry": "US"},
     "alumniOf": [
-        {"@type": "CollegeOrUniversity", "name": "New York University"},
-        {"@type": "CollegeOrUniversity", "name": "University of Washington"},
+        {"@type": "CollegeOrUniversity", "name": "University of Texas at Arlington"},
+        {"@type": "CollegeOrUniversity", "name": "Acropolis Institute of Technology & Research"},
     ],
     "sameAs": ["https://github.com/Nitin3560",
                "https://www.linkedin.com/in/nitin-singh-rathore/"],

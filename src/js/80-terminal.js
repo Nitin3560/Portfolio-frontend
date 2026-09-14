@@ -57,14 +57,11 @@
       "dl systems  CUDA, cuDNN, TorchScript, GPU profiling, inference optimization"
     ],
     "education.txt": [
-      "New York University                          Sep 2024 – May 2026",
-      "  M.S. Computer Engineering · Brooklyn, NY",
+      "University of Texas at Arlington             Expected Dec 2026",
+      "  M.S. Computer Science · Arlington, Texas",
       "",
-      "University of Washington                     Mar 2021 – Dec 2023",
-      "  B.S. Computer Science & Software Engineering · Seattle, WA",
-      "",
-      "University of Washington                     Mar 2021 – Dec 2023",
-      "  B.S. Mathematical Thinking & Visualization · Seattle, WA"
+      "Acropolis Institute of Technology & Research       2019 – 2023",
+      "  B.Tech. Computer Science · India"
     ],
     "experience.txt": [
       "Interview Bot — SDE Intern · Seattle, WA     Sep 2023 – Dec 2023",
