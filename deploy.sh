@@ -13,7 +13,7 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-BUCKET="${BUCKET:-hy-personal-web}"
+BUCKET="${BUCKET:?Set BUCKET explicitly to your own S3 bucket}"
 REGION="${REGION:-us-east-1}"
 BASE_URL="${BASE_URL:-https://${BUCKET}.s3.${REGION}.amazonaws.com}"
 
@@ -118,7 +118,7 @@ check(){  # path  expected-content-type-fragment
 }
 check "index.html" "text/html"
 check "resume.jpg" "image/jpeg"
-check "HY_resume.pdf" "application/pdf"
+check "Nitin_Resume.pdf" "application/pdf"
 check "og-image.png" "image/png"
 for f in music/*.mp3; do check "$f" "audio"; done
 

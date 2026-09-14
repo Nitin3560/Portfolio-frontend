@@ -17,7 +17,7 @@ Usage:
 import base64, io, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SITE = "https://hy-personal-web.s3.us-east-1.amazonaws.com"
+SITE = os.environ.get("SITE_URL", "").rstrip("/")
 TITLE = "Hao Yang — Software Engineer"
 DESC = ("Software engineer in Brooklyn, NY. M.S. Computer Engineering at NYU, May 2026. "
         "Backend systems, AWS, and applied AI — presented as a retro desktop.")
@@ -26,9 +26,9 @@ PERSON = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Hao Yang",
-    "url": "https://hy-personal-web.s3.us-east-1.amazonaws.com/index.html",
+    "url": SITE + "/index.html",
     "jobTitle": "Software Engineer",
-    "email": "mailto:hy3169@nyu.edu",
+    "email": "mailto:nxr3560@mavs.uta.edu",
     "address": {"@type": "PostalAddress", "addressLocality": "Brooklyn",
                 "addressRegion": "NY", "addressCountry": "US"},
     "alumniOf": [

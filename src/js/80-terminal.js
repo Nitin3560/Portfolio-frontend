@@ -75,7 +75,7 @@
       "    VPC, Helm charts and rollout strategies."
     ],
     "contact.txt": [
-      "email     hy3169@nyu.edu",
+      "email     nxr3560@mavs.uta.edu",
       "github    github.com/Nitin3560",
       "linkedin  linkedin.com/in/nitin-singh-rathore",
       "based in  Brooklyn, New York"
@@ -211,7 +211,7 @@
       ["Uptime",  uptime()],
       ["Audio",   "Web Audio" + (fileMode ? " + audio files" : " synthesis, no files")],
       ["Degrees", "M.S. CE @ NYU · 2× B.S. @ UW"],
-      ["Contact", "hy3169@nyu.edu"]
+      ["Contact", "nxr3560@mavs.uta.edu"]
     ];
     var n = Math.max(art.length, info.length);
     for(var i = 0; i < n; i++){
@@ -333,7 +333,7 @@
      the real download is started by a normal <a download> the moment the visitor
      confirms, and the progress pane is a short visual flourish afterwards, not a
      gate in front of it. */
-  var RESUME_URL = "HY_resume.pdf";
+  var RESUME_URL = "Nitin_Resume.pdf";
   var PDF_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><rect x="2" y="1" width="12" height="14" fill="#FBFAFD"/><rect x="2" y="1" width="1" height="14" fill="#413A52"/><rect x="13" y="1" width="1" height="14" fill="#413A52"/><rect x="2" y="1" width="12" height="1" fill="#413A52"/><rect x="2" y="14" width="12" height="1" fill="#413A52"/><rect x="4" y="9" width="8" height="4" fill="#C9316F"/><rect x="4" y="4" width="6" height="1" fill="#514A63"/><rect x="4" y="6" width="7" height="1" fill="#514A63"/></svg>';
   var fdWrap = document.getElementById("fdWrap");
   var fdBody = document.getElementById("fdBody");
@@ -371,7 +371,7 @@
     fdBody.innerHTML =
       '<div class="fd-row">' + PDF_ICON +
         '<span class="fd-txt">' +
-          '<span class="fd-name">HY_resume.pdf</span>' +
+          '<span class="fd-name">Nitin_Resume.pdf</span>' +
           '<p class="fd-q">Do you want to download this file?</p>' +
           '<span class="fd-meta"><b>Type:</b><span>PDF Document</span>' +
             '<b>Size:</b><span id="fdSize">' + (fmtBytes(fdSize) || "\u2014") + '</span></span>' +
@@ -391,7 +391,7 @@
     /* real download first — the animation must never hold the file up */
     var a = document.createElement("a");
     a.href = RESUME_URL;
-    a.download = "HY_resume.pdf";
+    a.download = "Nitin_Resume.pdf";
     a.rel = "noopener";
     document.body.appendChild(a);
     a.click();
@@ -400,7 +400,7 @@
     fdTitle.textContent = "Downloading\u2026";
     fdBody.innerHTML =
       '<div class="fd-row">' + PDF_ICON +
-        '<span class="fd-txt"><span class="fd-name">HY_resume.pdf</span>' +
+        '<span class="fd-txt"><span class="fd-name">Nitin_Resume.pdf</span>' +
         '<p class="fd-q">Transferring from the web site\u2026</p></span></div>' +
       '<div class="fd-track" id="fdTrack" role="progressbar" aria-label="Download progress" ' +
         'aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>' +
@@ -428,7 +428,7 @@
     fdTitle.textContent = "Download Complete";
     fdBody.innerHTML =
       '<div class="fd-row">' + PDF_ICON +
-        '<span class="fd-txt"><span class="fd-name"><span class="fd-ok">\u2713</span> HY_resume.pdf</span>' +
+        '<span class="fd-txt"><span class="fd-name"><span class="fd-ok">\u2713</span> Nitin_Resume.pdf</span>' +
         '<p class="fd-q">Download started. Check your browser\u2019s downloads.</p></span></div>' +
       '<div class="fd-btns"><button class="dl" type="button" id="fdOk" data-default>OK</button></div>';
     var ok = document.getElementById("fdOk");

@@ -8,7 +8,7 @@
     'Mounting /education ............ NYU, UW',
     'Mounting /experience ........... 1 role',
     'Loading /projects .............. 3 items',
-    'Starting network ............... <span class="mg">hy3169@nyu.edu</span>',
+    'Starting network ............... <span class="mg">nxr3560@mavs.uta.edu</span>',
     '',
     'Ready.'
   ];
@@ -30,7 +30,7 @@
     "ＳＭＡＲＴ　ＰＨＯＴＯ　ＡＬＢＵＭ　—　SERVERLESS IMAGE SEARCH",
     "ＤＩＮＩＮＧ　ＣＯＮＣＩＥＲＧＥ　—　1,600+ MANHATTAN RESTAURANTS",
     "ＰＡＣ－ＭＡＮ　プレイできます",
-    "SEEKING SWE ROLES FROM MAY 2026 · hy3169@nyu.edu",
+    "SEEKING SWE ROLES FROM MAY 2026 · nxr3560@mavs.uta.edu",
     "タッチして　つづける"
   ];
 
