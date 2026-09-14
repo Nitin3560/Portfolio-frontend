@@ -48,8 +48,8 @@
     ,linkedin: svg('<rect x="1" y="1" width="14" height="14" fill="#3A2668"/><rect x="2" y="2" width="12" height="1" fill="#5A3F94"/><rect x="5" y="4" width="2" height="2" fill="#6FD6E8"/><rect x="5" y="7" width="2" height="5" fill="#FBFAFD"/><rect x="9" y="7" width="2" height="5" fill="#FBFAFD"/><rect x="11" y="7" width="2" height="2" fill="#FBFAFD"/><rect x="13" y="7" width="2" height="5" fill="#FBFAFD"/><rect x="0" y="10" width="6" height="6" fill="#413A52"/><rect x="1" y="11" width="4" height="4" fill="#FBFAFD"/><rect x="2" y="13" width="1" height="1" fill="#3A2668"/><rect x="3" y="12" width="1" height="1" fill="#3A2668"/><rect x="3" y="11" width="2" height="1" fill="#3A2668"/><rect x="4" y="11" width="1" height="2" fill="#3A2668"/>')
   };
   var LINKS = [
-    {k:"github",   label:"GitHub",   url:"https://github.com/Phase1es2"},
-    {k:"linkedin", label:"LinkedIn", url:"https://www.linkedin.com/in/haoyang17/"}
+    {k:"github",   label:"GitHub",   url:"https://github.com/Nitin3560"},
+    {k:"linkedin", label:"LinkedIn", url:"https://www.linkedin.com/in/nitin-singh-rathore/"}
   ];
   var LABEL = {
     about:"README.TXT", experience:"Experience", projects:"Projects",

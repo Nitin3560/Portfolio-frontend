@@ -76,8 +76,8 @@
     ],
     "contact.txt": [
       "email     hy3169@nyu.edu",
-      "github    github.com/Phase1es2",
-      "linkedin  linkedin.com/in/haoyang17",
+      "github    github.com/Nitin3560",
+      "linkedin  linkedin.com/in/nitin-singh-rathore",
       "based in  Brooklyn, New York"
     ]
   };
@@ -184,12 +184,12 @@
 
   CMD.email = function(){ openCompose(); say("opening a new message …", "dim"); };
   CMD.github = function(){
-    window.open("https://github.com/Phase1es2", "_blank", "noopener");
-    say("github.com/Phase1es2", "dim");
+    window.open("https://github.com/Nitin3560", "_blank", "noopener");
+    say("github.com/Nitin3560", "dim");
   };
   CMD.linkedin = function(){
-    window.open("https://www.linkedin.com/in/haoyang17/", "_blank", "noopener");
-    say("linkedin.com/in/haoyang17", "dim");
+    window.open("https://www.linkedin.com/in/nitin-singh-rathore/", "_blank", "noopener");
+    say("linkedin.com/in/nitin-singh-rathore", "dim");
   };
   CMD.resume = function(){ open("resume"); say("opening the résumé …", "dim"); };
 
