@@ -2,6 +2,6 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "",
-  "buildCommand": "python3 build.py && mkdir -p public && cp index.html resume.jpg HY_resume.pdf apple-touch-icon.png favicon-32.png favicon.ico favicon.svg og-image.png public/",
+  "buildCommand": "python3 build.py && mkdir -p public && cp index.html resume.jpg HY_resume.pdf apple-touch-icon.png favicon-32.png favicon.ico favicon.svg og-image.png wallpaper.png public/",
   "outputDirectory": "public"
 }
