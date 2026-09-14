@@ -1,0 +1,349 @@
+/* ---------- player ----------
+   The cassette IS the player. There is no transport panel, no playlist panel
+   and no status line under it: every control is a marking on the shell or a
+   key on the deck lip the tape sits in. */
+.pl{gap:0}
+.pl .tape{width:100%}
+
+/* ---------------- cassette ----------------
+   A blank audio cassette, built the way one actually is: a moulded shell, a
+   printed paper label with the standard markings, and a window cut through both
+   showing the reels. The reels turn with a CSS animation handed to the
+   compositor and the tape packs are circles whose radii come from the real
+   spooling equation, so none of this needs a frame loop. */
+.tape{
+  --pack-a:80%; --pack-b:34%;
+  --spin-a:2.2s; --spin-b:1.1s;
+  width:100%;
+}
+.cass{
+  position:relative;width:100%;aspect-ratio:1.63/1;
+  border-radius:9px 9px 13px 13px;
+  padding:5.5% 4.6% 0;
+  display:flex;flex-direction:column;
+  /* moulded ABS: a cool base, a diagonal sheen, a lit top edge */
+  background:
+    linear-gradient(103deg,rgba(255,255,255,.07) 0 18%,transparent 18% 46%,rgba(255,255,255,.045) 46% 58%,transparent 58%),
+    linear-gradient(180deg,#3A3446 0%,#1D1926 9%,#15121D 55%,#1B1724 88%,#0D0B14 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.22),
+    inset 0 -2px 4px rgba(0,0,0,.8),
+    inset 2px 0 3px rgba(0,0,0,.35), inset -2px 0 3px rgba(0,0,0,.35),
+    0 2px 0 rgba(0,0,0,.55),
+    0 10px 22px -12px rgba(0,0,0,.9);
+}
+/* fine moulding texture — invisible individually, reads as plastic in aggregate */
+.cass::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:repeating-linear-gradient(38deg,rgba(255,255,255,.028) 0 1px,transparent 1px 3px);
+}
+
+/* ---- the printed label ---- */
+.cass-label{
+  position:relative;flex:1;min-height:0;
+  display:flex;flex-direction:column;
+  border-radius:2px;overflow:hidden;
+  background:linear-gradient(178deg,#F3EDE0 0%,#E7DFCE 62%,#DCD3C0 100%);
+  box-shadow:0 1px 0 rgba(255,255,255,.14),0 -1px 0 rgba(0,0,0,.55),
+             inset 0 0 0 1px rgba(94,80,60,.22);
+  color:#2A2438;font-family:var(--mono);
+}
+.cl-top{
+  display:flex;align-items:center;gap:7px;
+  padding:5px 7px 4px;flex:none;
+}
+.cl-side{
+  flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:1px 6px;line-height:1.05;align-self:center;
+  font-size:7px;letter-spacing:.14em;color:#1D1830;
+  border:1px solid rgba(42,36,56,.5);border-radius:1px;
+  background:linear-gradient(180deg,#6FD6E8,#43B6CE);
+}
+.cl-side b{font-size:12px;font-weight:700;letter-spacing:0}
+.cl-line{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;gap:1px}
+.cl-cap{font-size:6.5px;letter-spacing:.14em;color:#7A6E5A}
+/* the ruled line you would write the title on */
+.cass .pl-title{
+  display:block;font-family:var(--ui);font-size:15px;line-height:1.1;
+  color:#221A46;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  border-bottom:1px solid rgba(42,36,56,.42);padding-bottom:2px;
+}
+/* Real cassettes print the tape position on the shell. This one selects the
+   sound source, and it is the same two buttons as before — restyled, not moved. */
+.cl-pos{
+  flex:none;display:flex;align-items:stretch;
+  border:1px solid rgba(251,245,232,.5);border-radius:1px;overflow:hidden;
+}
+.pos-b{
+  border:0;padding:1px 6px;cursor:pointer;background:transparent;
+  font-family:var(--mono);font-size:7.5px;letter-spacing:.14em;
+  color:rgba(251,245,232,.62);line-height:1.5;
+}
+.pos-b + .pos-b{border-left:1px solid rgba(251,245,232,.35)}
+.pos-b[aria-pressed="true"]{
+  background:#F6E7C8;color:#2A1A46;
+  box-shadow:inset 0 -1px 0 rgba(0,0,0,.25);
+}
+.pos-b:focus-visible{outline:2px solid var(--cyan);outline-offset:1px}
+.cl-nr em{font-style:normal;font-size:5.5px;letter-spacing:.1em;line-height:1.15;color:#7A6E5A;text-align:center}
+.cl-nr span{display:flex;gap:4px;align-items:center}
+.cl-nr i{font-style:normal;font-size:5.5px;letter-spacing:.08em;color:#9A8E78}
+.cl-nr i.on{
+  color:#1D1830;background:#E85A9B;border-radius:1px;padding:0 2px;
+  box-shadow:0 0 0 1px rgba(42,36,56,.35);
+}
+
+/* ---- the window cut through label and shell ---- */
+.cass-win{
+  position:relative;flex:none;height:43%;margin:2px 7% 0;
+  border-radius:4px;
+  background:linear-gradient(180deg,#17131F 0%,#0A0810 55%,#141019 100%);
+  box-shadow:inset 0 2px 5px rgba(0,0,0,.95),0 0 0 1px rgba(94,80,60,.35),
+             0 1px 0 rgba(255,255,255,.35);
+  display:flex;align-items:center;justify-content:space-between;padding:0 4.5%;
+}
+.reel{
+  position:relative;height:86%;aspect-ratio:1;flex:none;
+  display:grid;place-items:center;
+  animation:reelSpin 2s linear infinite;animation-play-state:paused;
+}
+.reel-a{animation-duration:var(--spin-a)}
+.reel-b{animation-duration:var(--spin-b)}
+.pl.playing .reel{animation-play-state:running}
+@keyframes reelSpin{to{transform:rotate(360deg)}}
+.pack{
+  position:absolute;border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,#5A2430 0deg 4.5deg,#33141C 4.5deg 9deg);
+  box-shadow:0 0 0 1px rgba(0,0,0,.85),inset 0 0 12px rgba(0,0,0,.7);
+}
+.reel-a .pack{width:var(--pack-a);height:var(--pack-a)}
+.reel-b .pack{width:var(--pack-b);height:var(--pack-b)}
+.hub{
+  position:relative;width:30%;height:30%;border-radius:50%;
+  background:radial-gradient(circle at 36% 30%,#FDFBFF,#B8B2C6 55%,#77718A 100%);
+  box-shadow:0 0 0 1.5px rgba(0,0,0,.9);
+}
+.hub::before{content:"";position:absolute;inset:31%;border-radius:50%;background:#0A0712}
+.hub::after{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 0deg,
+    #0A0712 0deg 12deg,transparent 12deg 60deg, #0A0712 60deg 72deg,transparent 72deg 120deg,
+    #0A0712 120deg 132deg,transparent 132deg 180deg, #0A0712 180deg 192deg,transparent 192deg 240deg,
+    #0A0712 240deg 252deg,transparent 252deg 300deg, #0A0712 300deg 312deg,transparent 312deg 360deg);
+  -webkit-mask:radial-gradient(circle,transparent 32%,#000 33%);
+  mask:radial-gradient(circle,transparent 32%,#000 33%);
+}
+.tape-span{flex:1;height:100%;position:relative;margin:0 2%}
+.tape-span::after{        /* pressure pad behind the tape */
+  content:"";position:absolute;left:44%;right:44%;top:50%;transform:translateY(-50%);
+  height:26%;border-radius:1px;background:linear-gradient(180deg,#2A2334,#15111C);
+  box-shadow:0 0 0 1px rgba(0,0,0,.5);
+}
+.tape-span i{
+  position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
+  height:24%;z-index:2;
+  background:linear-gradient(180deg,#6A2F3C 0%,#431D26 34%,#2A1219 72%,#1B0B10 100%);
+  box-shadow:0 1px 0 rgba(0,0,0,.6),0 -1px 0 rgba(0,0,0,.5);
+}
+
+/* ---- the printed footer: brand, tape type, length ---- */
+/* The printed colour band along the bottom of the label. Real tapes carry one;
+   this one is in this site's violet-to-magenta rather than anyone else's blue. */
+.cl-foot{
+  position:relative;flex:1;min-height:0;margin-top:3px;
+  display:flex;align-items:center;gap:8px;padding:0 8px;overflow:hidden;
+  background:linear-gradient(96deg,#3A2668 0%,#6B3FA0 44%,#C43C75 100%);
+  border-top:1px solid rgba(42,36,56,.35);
+}
+.cl-foot::after{      /* a sheen, so the band reads as printed ink not a fill */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.16),transparent 46%);
+}
+.cl-brand,.cl-spec,.cl-len{position:relative;z-index:2}
+.cl-brand{
+  font-family:var(--ui);font-size:15px;line-height:1;color:#F6E7C8;flex:none;
+  text-shadow:0 1px 1px rgba(9,5,22,.5);
+}
+.cl-brand b{font-weight:400;color:#6FD6E8}
+.cl-brand::after{content:"\2011";opacity:0;width:0;display:inline-block}
+.cl-spec{
+  flex:1;min-width:0;font-size:8px;line-height:1.28;color:#FBF5E8;
+  text-shadow:0 1px 1px rgba(9,5,22,.55);white-space:nowrap;overflow:hidden;
+}
+.cl-spec em{display:block;font-style:normal;font-size:6.5px;color:rgba(251,245,232,.8)}
+.cl-len{
+  flex:none;font-family:var(--ui);font-size:15px;color:#FFD98A;
+  text-shadow:0 1px 1px rgba(9,5,22,.5);
+}
+
+/* ---- moulded base below the label ---- */
+.cass-base{position:relative;flex:none;height:16%}
+.scr{
+  position:absolute;width:9px;height:9px;border-radius:50%;
+  background:radial-gradient(circle at 34% 28%,#D7D1E0,#7B7590 58%,#332E42);
+  box-shadow:0 0 0 1px rgba(0,0,0,.85),inset 0 -1px 1px rgba(0,0,0,.55);
+}
+.scr::after{
+  content:"";position:absolute;left:50%;top:14%;bottom:14%;width:1.5px;
+  transform:translateX(-50%) rotate(32deg);background:rgba(16,12,26,.8);
+}
+.scr.s1{left:1%;top:20%} .scr.s2{right:1%;top:20%}
+.scr.s3{left:29%;top:40%}   .scr.s4{right:29%;top:40%}
+.hole{                    /* capstan slots */
+  position:absolute;top:34%;width:8px;height:11px;border-radius:1px;background:#05040A;
+  box-shadow:inset 0 1px 2px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.06);
+}
+.hole.h1{left:39%} .hole.h2{right:39%}
+.pad{
+  position:absolute;left:47%;right:47%;top:34%;height:26%;
+  background:#05040A;border-radius:1px;
+  box-shadow:0 0 0 1px rgba(255,255,255,.05);
+}
+
+@media (prefers-reduced-motion:reduce){
+  .pl.playing .reel{animation-play-state:paused}
+}
+
+
+/* ---------------- the deck lip ----------------
+   The strip of the machine the cassette is loaded into: three mechanical keys,
+   a level window, the counter and the volume thumbwheel. */
+.lip{
+  display:flex;align-items:center;gap:8px;
+  margin-top:-6px;padding:9px 11px 8px;
+  border-radius:0 0 7px 7px;
+  background:linear-gradient(180deg,#241F2E 0%,#171320 42%,#100D18 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10),
+    inset 0 -1px 0 rgba(0,0,0,.7),
+    0 6px 14px -8px rgba(0,0,0,.85);
+}
+.key{
+  flex:none;width:38px;height:26px;border:0;cursor:pointer;padding:0;
+  display:grid;place-items:center;color:#E8E3F0;
+  background:linear-gradient(180deg,#4A4358 0%,#332D41 48%,#241F2E 100%);
+  border-radius:2px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.28), inset 0 -2px 0 rgba(0,0,0,.55),
+    0 2px 0 #0C0A12, 0 3px 4px -2px rgba(0,0,0,.8);
+}
+.key-w{width:46px}
+.key:active{
+  transform:translateY(2px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),inset 0 -1px 0 rgba(0,0,0,.5),0 0 0 #0C0A12;
+}
+.key:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.key svg{width:13px;height:13px;fill:currentColor}
+
+/* the level window, recessed into the lip */
+.pl-viz{
+  flex:none;width:78px;height:22px;display:block;border-radius:2px;
+  background:#07050D;
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.95),0 1px 0 rgba(255,255,255,.08);
+}
+.dk-time{
+  flex:none;margin-left:auto;font-family:var(--mono);font-size:13px;
+  color:var(--amber);font-variant-numeric:tabular-nums;
+  text-shadow:0 0 8px rgba(245,166,87,.45);
+}
+/* volume as a ridged thumbwheel, still a real range input underneath */
+.dk-vol{flex:none;display:flex;align-items:center}
+.dk-vol[hidden]{display:none}
+#plVol{
+  -webkit-appearance:none;appearance:none;width:62px;height:16px;
+  background:
+    repeating-linear-gradient(90deg,rgba(0,0,0,.55) 0 1px,transparent 1px 4px),
+    linear-gradient(180deg,#59526B 0%,#3A3448 100%);
+  background-color:#3A3448;
+  border-radius:2px;cursor:ew-resize;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -2px 3px rgba(0,0,0,.6),
+             0 0 0 1px rgba(0,0,0,.7);
+}
+#plVol::-webkit-slider-thumb{
+  -webkit-appearance:none;width:7px;height:20px;border-radius:1px;
+  background:linear-gradient(180deg,#F6E7C8,#B9AF97);
+  box-shadow:0 0 0 1px rgba(0,0,0,.8),0 0 7px rgba(246,231,200,.5);
+}
+#plVol::-moz-range-thumb{
+  width:7px;height:20px;border:0;border-radius:1px;
+  background:linear-gradient(180deg,#F6E7C8,#B9AF97);
+  box-shadow:0 0 0 1px rgba(0,0,0,.8);
+}
+#plVol:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+/* ---------------- the J-card index ----------------
+   Folded away until the track number is pressed; it overlays the label rather
+   than adding a panel, so opening it changes the player's height by nothing. */
+.idx{
+  position:absolute;inset:0;z-index:6;
+  background:linear-gradient(180deg,#F6F1E4 0%,#E4DBC8 100%);
+  box-shadow:inset 0 0 0 1px rgba(94,80,60,.35),0 6px 14px -6px rgba(0,0,0,.7);
+  padding:7px 8px;display:flex;flex-direction:column;gap:5px;overflow:auto;
+}
+.idx[hidden]{display:none}
+.idx-h{
+  display:flex;align-items:center;justify-content:space-between;flex:none;
+  font-family:var(--mono);font-size:8px;letter-spacing:.22em;color:#7A6E5A;
+  border-bottom:1px solid rgba(94,80,60,.35);padding-bottom:3px;
+}
+.idx-x{
+  border:0;background:transparent;cursor:pointer;line-height:1;
+  font-size:15px;color:#5E5040;padding:0 3px;
+}
+.idx-x:hover{color:#221A46}
+.idx-x:focus-visible{outline:2px solid var(--violet);outline-offset:1px}
+.pl-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+.pl-list button{
+  width:100%;display:flex;align-items:baseline;gap:8px;padding:4px 6px;
+  border:0;background:transparent;cursor:pointer;text-align:left;
+  font-family:var(--mono);font-size:12px;color:#2A2438;
+  border-bottom:1px solid rgba(94,80,60,.28);
+}
+.pl-list .pl-num{color:var(--violet);font-weight:600;flex:none}
+.pl-list .pl-meta{margin-left:auto;color:#7A6E5A;font-size:11px;flex:none}
+.pl-list button:hover{background:rgba(107,63,160,.12)}
+.pl-list button:focus-visible{outline:2px solid var(--violet);outline-offset:-2px}
+.pl-list li[aria-current="true"] button{background:rgba(107,63,160,.2);color:#221A46}
+.pl-note{
+  margin:0;font-family:var(--mono);font-size:9.5px;line-height:1.4;color:#7A6E5A;
+}
+
+@media (max-width:899.98px){
+  .key{width:44px;height:44px}
+  .key-w{width:52px}
+  #plVol{height:44px}
+}
+
+/* the printed track number, and the handle for the J-card index */
+.cl-no{
+  flex:none;align-self:center;padding:3px 6px;min-width:30px;cursor:pointer;
+  font-family:var(--mono);font-size:14px;font-weight:600;color:#2A2438;
+  background:transparent;border:1px solid rgba(42,36,56,.42);border-radius:1px;
+  font-variant-numeric:tabular-nums;line-height:1.1;
+}
+.cl-no:hover{background:rgba(107,63,160,.12)}
+.cl-no:focus-visible{outline:2px solid var(--violet);outline-offset:1px}
+.cl-no[aria-expanded="true"]{background:var(--violet);color:#FBF5E8;border-color:var(--violet)}
+.cl-line{gap:0}
+.cass .pl-sub{
+  display:block;font-family:var(--mono);font-size:10px;line-height:1.5;
+  color:#6E6350;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  text-transform:uppercase;letter-spacing:.1em;
+}
+/* the tape window is a control now, so it must not look like a form button */
+.cass-win{
+  border:0;cursor:pointer;font:inherit;color:inherit;width:auto;
+}
+.cass-win:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+/* Touch. An overhanging invisible hit area would sit on top of the tape window,
+   so instead the shell itself grows a little: a slightly taller cassette gives
+   the printed markings room to be real 44px targets. */
+@media (pointer:coarse){
+  .cass{aspect-ratio:1.34/1}
+  .cl-no{min-width:44px;min-height:44px}
+  .pos-b{min-width:46px;min-height:44px}
+  .cl-pos{align-self:center}
+  .cass-win{min-height:44px}
+  .idx-x{min-width:44px;min-height:44px}
+}

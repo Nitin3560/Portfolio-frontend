@@ -1,0 +1,26 @@
+/* ---------- compose dialog ---------- */
+#composeWrap{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px}
+#composeWrap[hidden]{display:none}
+#veil{position:absolute;inset:0;background:rgba(11,7,24,.55)}
+.dlg{
+  position:relative;width:min(420px,100%);background:var(--face);padding:3px;
+  display:flex;flex-direction:column;
+  box-shadow:var(--bevel-out),5px 7px 0 rgba(9,5,22,.5);
+}
+.dlg-body{background:var(--face);padding:18px 16px 16px;display:flex;flex-direction:column;gap:14px}
+.dlg-lede{margin:0;font-size:14px;color:var(--ink)}
+.addr{
+  margin:0;padding:9px 11px;background:var(--paper);
+  font-family:var(--mono);font-size:14px;color:var(--title-a);word-break:break-all;
+  box-shadow:var(--bevel-in);
+}
+.dlg-hint{margin:0;font-size:12.5px;color:var(--ink-soft)}
+.dlg-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dlg-btns .dl{
+  align-self:stretch;justify-content:center;display:flex;align-items:center;gap:7px;
+  padding:9px 10px;text-align:center;font-size:13.5px;cursor:pointer;border:0;
+  font-family:var(--ui);color:var(--ink);
+}
+.dlg-btns .dl svg{width:15px;height:15px;flex:none}
+.dlg-btns .dl.wide{grid-column:1 / -1}
+

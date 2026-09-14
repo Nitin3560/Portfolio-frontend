@@ -1,0 +1,232 @@
+/* ---------- mobile: the desktop becomes a stack ---------- */
+body.flow #icons,body.flow #wall,body.flow #scan{position:absolute}
+body.flow #wall{height:340px}
+body.flow #icons{display:none}
+body.flow{background:var(--indigo)}
+
+#stackhead{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+body.flow #stackhead{
+  position:relative;width:auto;height:auto;margin:0;padding:56px 20px 30px;
+  overflow:visible;clip:auto;white-space:normal;z-index:3;text-align:center;color:#fff;
+}
+body.flow #stackhead h1{
+  font-family:var(--ui);font-size:34px;font-weight:400;margin:0 0 6px;
+  letter-spacing:.04em;text-shadow:2px 2px 0 rgba(10,6,24,.8);
+}
+body.flow #stackhead p{
+  margin:0 auto;max-width:34ch;font-size:14px;color:#E4DDF2;
+  text-shadow:1px 1px 0 rgba(10,6,24,.8);
+}
+body.flow #windows{
+  position:relative;z-index:3;display:flex;flex-direction:column;gap:16px;
+  padding:14px 10px calc(var(--taskbar) + 24px);
+}
+body.flow .win{
+  position:static !important;display:flex !important;
+  width:auto !important;height:auto !important;max-width:none;
+}
+body.flow .win .body{max-height:none;padding:18px 16px 22px}
+body.flow .tbtn{display:none}
+body.flow #tasks{display:none}
+body.flow #taskbar{--taskbar:52px;height:52px}
+body.flow #start{flex:0 0 auto}
+body.flow #tray{margin-left:auto}
+
+@media (max-width:520px){
+  .body h2{font-size:22px}
+  .body{padding:16px 14px 20px}
+}
+
+
+/* ---------- Phase 2: skip link ---------- */
+.skip{position:absolute;left:-9999px;top:0;z-index:100}
+.skip{min-height:44px;display:flex;align-items:center}
+.skip:focus{
+  left:8px;top:8px;padding:0 18px;background:var(--face);color:var(--ink);
+  font-family:var(--ui);font-size:14px;text-decoration:none;box-shadow:var(--bevel-out);
+}
+
+/* ---------- Phase 2: mobile section nav ---------- */
+#mnav{display:none}
+body.flow #mnav{
+  display:flex;position:sticky;top:0;z-index:30;gap:6px;
+  padding:8px 10px;overflow-x:auto;overscroll-behavior-x:contain;
+  background:var(--face);box-shadow:var(--bevel-out);scrollbar-width:none;
+}
+#mnav[hidden]{display:none}
+body.flow #mnav::-webkit-scrollbar{display:none}
+body.flow #mnav.more{
+  -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 26px),transparent 100%);
+          mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 26px),transparent 100%);
+}
+#mnav a,#mnav button{
+  flex:none;display:flex;align-items:center;height:44px;padding:0 13px;
+  font-family:var(--ui);font-size:13.5px;color:var(--ink);text-decoration:none;
+  white-space:nowrap;background:var(--face);box-shadow:var(--bevel-out);
+}
+#mnav a:active,#mnav button:active{box-shadow:var(--bevel-in)}
+#mnav a:focus-visible,#mnav button:focus-visible{outline:2px solid var(--title-a);outline-offset:-4px}
+
+/* ---------- Phase 2: collapsible windows on mobile ---------- */
+.fold{display:none}
+body.flow .win{scroll-margin-top:64px}   /* clear the sticky #mnav */
+body.flow .titlebar{position:relative;min-height:44px}
+body.flow .titlebar .t{padding-right:28px}
+body.flow .fold{
+  display:block;position:absolute;inset:0;width:100%;height:100%;
+  background:transparent;border:0;padding:0;cursor:pointer;
+}
+body.flow .fold:focus-visible{outline:2px solid #fff;outline-offset:-3px}
+body.flow .fold::after{
+  content:"";position:absolute;right:11px;top:50%;margin-top:-3px;
+  border-left:6px solid transparent;border-right:6px solid transparent;
+  border-top:7px solid #fff;
+}
+body.flow .win.folded .fold::after{border-top-color:#EDEAF3;transform:rotate(-90deg)}
+body.flow .win.folded > .body,body.flow .win.folded > .status{display:none}
+
+/* ---------- Phase 2: graceful degradation if the script dies ---------- */
+html.js-failed #icons,html.js-failed #taskbar,html.js-failed #boot,html.js-failed #scan,
+html.js-failed #volPop,html.js-failed #startmenu,html.js-failed #composeWrap,
+html.js-failed .tbtn,html.js-failed .fold,html.js-failed .rz{display:none !important}
+html.js-failed body{overflow:auto;background:var(--indigo)}
+html.js-failed #wall{position:absolute;height:320px}
+html.js-failed #stackhead{
+  position:relative;width:auto;height:auto;margin:0;clip:auto;overflow:visible;
+  white-space:normal;padding:52px 20px 26px;text-align:center;color:#fff;z-index:3;
+}
+html.js-failed #stackhead h1{font-family:var(--ui);font-size:32px;font-weight:400;margin:0 0 6px}
+html.js-failed #windows{
+  position:relative;z-index:3;display:flex;flex-direction:column;gap:16px;padding:14px 10px 48px;
+}
+html.js-failed .win{
+  display:flex !important;position:static !important;
+  width:auto !important;height:auto !important;max-width:none;
+}
+html.js-failed .win .body{max-height:none;overflow:visible}
+
+/* ---------- Recruiter View ----------
+   It is an ordinary OS window now, so it inherits the chassis, the titlebar, the
+   taskbar button, drag/resize/maximise and the 3px gutter for free. These rules
+   only style the document inside the window body. */
+.ns{max-width:66ch;margin:0;padding:0;color:var(--ink);font-size:15px;line-height:1.62}
+/* The document's only <h1> lives in the page header; this is the same name one
+   level down, styled identically so nothing moves. */
+.ns .rm-name{
+  font-family:var(--ui);font-size:30px;font-weight:400;margin:0 0 3px;color:var(--ink);
+  border-bottom:0;padding-bottom:0;
+}
+.ns .role{
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--violet);margin:0 0 22px;
+}
+.ns h2{
+  font-family:var(--ui);font-size:19px;font-weight:400;margin:28px 0 8px;color:var(--ink);
+  border-bottom:1px solid var(--rule);padding-bottom:5px;
+}
+.ns p{margin:0 0 11px}
+.ns ul{margin:0 0 11px;padding-left:19px}
+.ns li{margin-bottom:7px}
+.ns strong{color:var(--ink);font-weight:700}
+.ns a{color:var(--title-a)}
+.ns .m{font-family:var(--mono);font-size:13.5px}
+.ns-only{display:none}          /* the "needs JavaScript" line: no-JS only */
+.rm-bar{
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  margin:0 0 26px;padding-bottom:18px;border-bottom:1px solid var(--rule);
+}
+.rm-pdf{font-weight:600}
+
+/* ---------- incoming-message notification ----------
+   Deliberately an old IM alert, not a SaaS toast: chassis bevel, a real title
+   bar, square corners, and it sits above the taskbar rather than floating free. */
+#qq{
+  position:fixed;right:12px;z-index:38;width:264px;
+  bottom:calc(var(--taskbar) + 12px);
+  background:var(--face);padding:3px;
+  box-shadow:var(--bevel-out),4px 5px 0 rgba(9,5,22,.42);
+}
+#qq[hidden]{display:none}
+/* Where the identity plate shows, the toast sits above it rather than on top of
+   it — the plate is permanent, the toast is not. */
+@media (min-width:1100px){ #qq{bottom:calc(var(--taskbar) + 202px)} }
+#qq.in{animation:qqIn .42s cubic-bezier(.18,.9,.32,1.28) both}
+#qq.out{animation:qqOut .22s ease-in both}
+@keyframes qqIn{
+  0%{transform:translate(26px,28px) scale(.94);opacity:0}
+  70%{transform:translate(0,-5px) scale(1.015);opacity:1}
+  100%{transform:translate(0,0) scale(1);opacity:1}
+}
+@keyframes qqOut{to{transform:translate(20px,16px) scale(.96);opacity:0}}
+.qq-bar{
+  display:flex;align-items:center;gap:7px;padding:4px 4px 4px 7px;color:#fff;
+  background:linear-gradient(90deg,var(--title-a) 0%,var(--violet) 45%,var(--title-b) 100%);
+}
+.qq-bar .qq-t{flex:1;font-family:var(--ui);font-size:14px;letter-spacing:.03em}
+.qq-dot{width:8px;height:8px;flex:none;background:var(--amber);box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+#qq.unread .qq-dot{animation:qqBlink 1.5s steps(1,end) infinite}
+@keyframes qqBlink{0%,60%{opacity:1}61%,100%{opacity:.15}}
+.qq-x{
+  width:20px;height:18px;flex:none;border:0;background:var(--face);cursor:pointer;
+  position:relative;box-shadow:var(--bevel-out);padding:0;
+}
+.qq-x::before,.qq-x::after{
+  content:"";position:absolute;left:4px;top:8px;width:10px;height:2px;background:var(--ink);
+}
+.qq-x::before{transform:rotate(45deg)}
+.qq-x::after{transform:rotate(-45deg)}
+.qq-x:active{box-shadow:var(--bevel-in)}
+.qq-x:focus-visible{outline:2px solid #fff;outline-offset:-3px}
+.qq-body{
+  display:flex;gap:11px;align-items:flex-start;margin-top:3px;padding:13px 13px 11px;
+  background:var(--paper);box-shadow:var(--bevel-in);
+}
+.qq-body svg{width:30px;height:30px;flex:none}
+.qq-txt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.qq-txt b{font-size:14.5px;color:var(--ink)}
+.qq-txt span{font-size:12.5px;color:var(--ink-soft)}
+.qq-foot{display:flex;justify-content:flex-end;gap:7px;padding:8px 3px 3px}
+.qq-foot .dl{min-height:30px;padding:0 20px;align-self:auto;display:inline-flex;align-items:center}
+
+/* unread badge in the system tray */
+#qqBadge{
+  display:none;align-items:center;gap:5px;height:26px;padding:0 8px;flex:none;
+  border:0;background:var(--face);cursor:pointer;font-family:var(--mono);
+  font-size:12px;color:var(--title-a);box-shadow:var(--bevel-out);
+}
+#qqBadge.live{display:inline-flex}          /* stays once the message has arrived */
+#qqBadge svg{width:14px;height:14px}
+#qqBadge .n{display:none}
+#qqBadge.unread .n{display:inline}
+#qqBadge.unread{animation:qqNudge 2.2s ease-in-out infinite}
+@keyframes qqNudge{0%,100%{filter:brightness(1)}50%{filter:brightness(1.25)}}
+#qqBadge:active{box-shadow:var(--bevel-in)}
+#qqBadge:focus-visible{outline:2px solid var(--title-a);outline-offset:-3px}
+@media (max-width:559.98px){
+  #qqBadge .n{display:none !important}
+  #qqBadge{height:44px;min-width:44px;padding:0;justify-content:center}
+}
+@media (max-width:559.98px){
+  /* the short word costs less than the taskbar can spare */
+  .lbl-long{display:none}
+  .lbl-short{display:inline}
+}
+@media (max-width:359.98px){
+  /* Five fixed items and a tray. On a 320px screen the last few pixels have to
+     come out of the gaps rather than out of a control. */
+  #taskbar{padding:0 4px;gap:4px}
+}
+@media (max-width:400px){
+  /* icon + aria-label only; even the short word is more than there is room for */
+  #resumeBtn .lbl-short,#armHint .lbl-short{display:none}
+  #resumeBtn,#armHint{min-width:44px;padding:0;justify-content:center}
+}
+@media (max-width:400px){ #qq{width:auto;left:12px;right:12px} }
+@media (prefers-reduced-motion:reduce){
+  #qq.in,#qq.out{animation:none}
+  #qq.unread .qq-dot,#qqBadge.unread{animation:none}
+}
+

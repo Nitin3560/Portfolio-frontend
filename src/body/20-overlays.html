@@ -1,0 +1,115 @@
+<div id="attract" hidden aria-hidden="true">
+  <div class="at-inner">
+    <p class="at-kicker">ＨＹ<span>‑</span>ＯＳ　１．０</p>
+    <h2 class="at-title">HAO YANG</h2>
+    <p class="at-sub">SOFTWARE ENGINEER &middot; BROOKLYN NY</p>
+    <div class="at-rule" aria-hidden="true"></div>
+    <dl class="at-scores">
+      <div><dt>ハイスコア</dt><dd id="atHigh">000000</dd></div>
+      <div><dt>ラウンド</dt><dd>NYU &rsquo;26</dd></div>
+    </dl>
+    <p class="at-coin">INSERT COIN</p>
+  </div>
+  <div class="at-marquee" aria-hidden="true"><span id="atScroll"></span></div>
+  <div class="at-scan" aria-hidden="true"></div>
+</div>
+
+<div id="fdWrap" hidden>
+  <div id="fdVeil"></div>
+  <div class="fd" role="dialog" aria-modal="true" aria-labelledby="fdTitle">
+    <div class="titlebar">
+      <i class="dot" aria-hidden="true"></i>
+      <span class="t" id="fdTitle">File Download</span>
+      <button class="tbtn" data-act="close" id="fdX" aria-label="Close"></button>
+    </div>
+    <div class="fd-body" id="fdBody"></div>
+  </div>
+</div>
+
+
+<div id="composeWrap" hidden>
+  <div id="veil"></div>
+  <div class="dlg" role="dialog" aria-modal="true" aria-labelledby="dlg-t">
+    <div class="titlebar">
+      <i class="dot" aria-hidden="true"></i>
+      <span class="t" id="dlg-t">New Message</span>
+      <button class="tbtn" data-act="close" id="dlgClose" aria-label="Close New Message"></button>
+    </div>
+    <div class="dlg-body">
+      <p class="dlg-lede">Start a message to:</p>
+      <p class="addr">hy3169@nyu.edu</p>
+      <p class="dlg-hint">Pick where you want to write it.</p>
+      <div class="dlg-btns">
+        <a class="dl" data-ico="gmail" data-close href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hy3169@nyu.edu" target="_blank" rel="noopener noreferrer">Gmail</a>
+        <a class="dl" data-ico="outlook" data-close href="https://outlook.live.com/mail/0/deeplink/compose?to=hy3169@nyu.edu" target="_blank" rel="noopener noreferrer">Outlook</a>
+        <a class="dl wide" data-ico="contact" data-close href="mailto:hy3169@nyu.edu">Default mail app</a>
+        <button class="dl wide" type="button" id="copyAddr">Copy address</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aside id="qq" class="unread" role="alertdialog" aria-labelledby="qqTitle"
+       aria-describedby="qqDesc" hidden>
+  <div class="qq-bar">
+    <i class="qq-dot" aria-hidden="true"></i>
+    <span class="qq-t" id="qqTitle">New Message</span>
+    <button class="qq-x" type="button" id="qqClose" aria-label="Dismiss this notification"></button>
+  </div>
+  <div class="qq-body">
+    <svg viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><rect x="1" y="2" width="14" height="9" fill="#6B3FA0"/><rect x="2" y="3" width="12" height="7" fill="#EFEAF9"/><rect x="3" y="11" width="4" height="2" fill="#6B3FA0"/><rect x="4" y="5" width="8" height="1" fill="#6B3FA0"/><rect x="4" y="7" width="5" height="1" fill="#E85A9B"/></svg>
+    <span class="qq-txt"><b>Recruiter View</b><span id="qqDesc">30-second version of my profile</span></span>
+  </div>
+  <div class="qq-foot">
+    <button class="dl" type="button" id="qqOpen">Open</button>
+  </div>
+</aside>
+
+
+<!-- discovery toast for the hidden layer -->
+<aside id="egg" hidden>
+  <div class="egg-bar">
+    <i class="egg-dot" aria-hidden="true"></i>
+    <span class="egg-t" id="eggT">Hidden layer</span>
+    <button class="egg-x" type="button" id="eggX" aria-label="Dismiss"></button>
+  </div>
+  <div class="egg-body" role="status" aria-live="polite">
+    <b id="eggN"></b><span id="eggD"></span>
+  </div>
+  <div class="egg-foot">
+    <span class="egg-meter" aria-hidden="true"><i id="eggBar" style="width:0"></i></span>
+    <span id="eggC"></span>
+  </div>
+</aside>
+
+<!-- a joke, and labelled as one inside the dialog itself -->
+<div id="panicWrap" hidden>
+  <div id="panicVeil"></div>
+  <div class="dlg panic" role="alertdialog" aria-modal="true"
+       aria-labelledby="panic-t" aria-describedby="panic-d">
+    <div class="titlebar">
+      <i class="dot" aria-hidden="true"></i>
+      <span class="t" id="panic-t">HY-OS</span>
+      <button class="tbtn" data-act="close" id="panicX" aria-label="Close"></button>
+    </div>
+    <div class="dlg-body">
+      <div class="panic-row">
+        <svg class="panic-ico" viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges">
+          <path d="M8 1 L15 14 L1 14 Z" fill="#F5A657"/>
+          <path d="M8 4 L13 13 L3 13 Z" fill="#3A2668"/>
+          <rect x="7" y="6" width="2" height="4" fill="#F5A657"/>
+          <rect x="7" y="11" width="2" height="1" fill="#F5A657"/>
+        </svg>
+        <div>
+          <p class="dlg-lede" id="panic-d">A fatal exception 0E has occurred at 0028:C0011E36.</p>
+          <p class="dlg-hint">Nothing on your computer was touched. There is no filesystem
+            here to remove &mdash; this page is one HTML file and a lot of stubbornness.</p>
+        </div>
+      </div>
+      <p class="panic-code">HAOS.VXD &middot; rm: cannot remove &lsquo;/&rsquo;: it is a metaphor</p>
+      <div class="dlg-btns">
+        <button class="dl wide" type="button" id="panicOk">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

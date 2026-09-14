@@ -1,0 +1,90 @@
+/* ---------- Pac-Man ---------- */
+.pac{gap:10px}
+/* The window body scrolls by default, which let the board grow taller than the
+   frame when maximized. For this one window the body becomes a flex column so
+   the cabinet gets the height instead of overflowing it. */
+[data-win="pacman"] > .body{display:flex}
+[data-win="pacman"] > .body > .pac{flex:1 1 auto;min-height:0}
+.pac-cab{
+  background:#0B0718;padding:10px 12px 12px;display:flex;flex-direction:column;gap:8px;
+  box-shadow:var(--bevel-in);flex:1 1 auto;min-height:0;
+}
+.pac-marquee{
+  font-family:var(--ui);font-size:11px;letter-spacing:.22em;text-align:center;
+  color:var(--amber);text-shadow:0 0 6px rgba(245,166,87,.45);
+}
+.pac-marquee span{color:var(--magenta)}
+.pac-hud{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.pac-stat{display:flex;flex-direction:column;gap:1px;min-width:0}
+.pac-stat b{
+  font-family:var(--ui);font-size:9.5px;font-weight:400;letter-spacing:.14em;
+  color:var(--magenta);white-space:nowrap;
+}
+.pac-stat span{
+  font-family:var(--mono);font-size:13px;color:var(--pellet,#F6E7C8);
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.pac-screen{
+  flex:1 1 auto;min-height:0;display:grid;place-items:center;
+  background:#120E28;line-height:0;
+}
+/* fit() sizes this box to the largest 224:248 rectangle the screen allows,
+   so the board is never cropped and never stretched */
+.pac-view{position:relative;line-height:0;max-width:100%}
+#pacCv{
+  display:block;width:100%;height:100%;
+  image-rendering:pixelated;image-rendering:crisp-edges;
+  background:#120E28;
+}
+/* CRT: a scanline comb plus a soft corner vignette. Deliberately faint —
+   the board has to stay readable while you are being chased. */
+.pac-crt{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(9,5,22,.55) 100%),
+    repeating-linear-gradient(0deg,rgba(0,0,0,.20) 0 1px,transparent 1px 3px);
+  mix-blend-mode:multiply;
+}
+.pac-msg{
+  position:absolute;left:0;right:0;top:52%;text-align:center;pointer-events:none;
+  font-family:var(--ui);font-size:15px;letter-spacing:.2em;line-height:1;
+  color:var(--amber);text-shadow:0 0 8px rgba(245,166,87,.6),0 2px 0 #0B0718;
+}
+.pac-msg[hidden]{display:none}
+.pac-msg span{animation:pacBlink 1s steps(1,end) infinite}
+@keyframes pacBlink{0%,55%{opacity:1}56%,100%{opacity:.15}}
+
+.pac-pad{display:none;grid-template-columns:repeat(3,52px);grid-template-rows:repeat(2,46px);
+  justify-content:center;gap:6px}
+.pac-dir{
+  border:0;background:var(--face);color:var(--ink);cursor:pointer;
+  font-size:15px;line-height:1;box-shadow:var(--bevel-out);
+  -webkit-user-select:none;user-select:none;touch-action:manipulation;
+}
+.pac-dir:active{box-shadow:var(--bevel-in)}
+.pac-dir:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+.pac-dir[data-dir="up"]{grid-column:2;grid-row:1}
+.pac-dir[data-dir="left"]{grid-column:1;grid-row:2}
+.pac-dir[data-dir="down"]{grid-column:2;grid-row:2}
+.pac-dir[data-dir="right"]{grid-column:3;grid-row:2}
+
+.pac-foot{display:flex;gap:7px;flex-wrap:wrap}
+.pac-btn{
+  flex:1 1 auto;min-height:34px;padding:0 12px;border:0;background:var(--face);
+  color:var(--ink);cursor:pointer;box-shadow:var(--bevel-out);
+  font-family:var(--ui);font-size:11.5px;letter-spacing:.16em;
+}
+.pac-btn:active,.pac-btn[aria-pressed="true"]{box-shadow:var(--bevel-in);color:var(--title-a)}
+.pac-btn:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+.pac-btn[disabled]{opacity:.5;cursor:default}
+.pac-hint{margin:0;font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-height:1.5}
+
+/* Touch devices and the mobile stack get the D-pad. This rule sits AFTER the
+   base .pac-pad{display:none} on purpose: a media query adds no specificity. */
+@media (pointer:coarse){ .pac-pad{display:grid} }
+@media (max-width:899.98px){
+  .pac-pad{display:grid}
+  .pac-btn{min-height:44px}
+  .pac-dir{min-height:44px}
+}
+

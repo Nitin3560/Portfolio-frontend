@@ -1,0 +1,411 @@
+<main id="windows">
+
+  <!-- ABOUT -->
+  <section class="win" data-win="about" data-x="330" data-y="120" data-w="600" data-h="430" aria-labelledby="t-about">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-about">README.TXT</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize README.TXT"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize README.TXT"></button>
+      <button class="tbtn" data-act="close" aria-label="Close README.TXT"></button></div>
+    <div class="body">
+      <div class="stack">
+        <div>
+          <p class="eyebrow">Hao Yang &middot; Brooklyn, NY</p>
+          <h2>Backend systems, with the AI parts actually shipped.</h2>
+        </div>
+        <hr class="rule">
+        <p>I&rsquo;m finishing an M.S. in Computer Engineering at NYU in May 2026. Most of what I build lives on the server side &mdash; retrieval pipelines, event-driven AWS backends, containerized services and the CI that keeps them honest.</p>
+        <p>The recurring thread across my projects is making an AI feature feel immediate rather than impressive on paper: streaming tokens instead of waiting on a full response, summarizing conversation history so context survives past ten turns, indexing photos the moment they land in a bucket.</p>
+        <hr class="rule">
+        <p><strong>Actively seeking intern and full-time Software Development roles starting May 2026.</strong></p>
+      </div>
+    </div>
+    <div class="status"><span>readme.txt</span><span>1 of 1</span></div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="win" data-win="experience" data-x="360" data-y="150" data-w="700" data-h="540" aria-labelledby="t-exp">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-exp">Experience</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Experience"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Experience"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Experience"></button></div>
+    <div class="body">
+      <div class="stack">
+        <h2>Experience</h2>
+        <hr class="rule">
+        <article class="entry">
+          <div class="head">
+            <h3>Interview Bot</h3>
+            <span class="when">Sep 2023 &ndash; Dec 2023</span>
+          </div>
+          <p class="where">Software Development Engineer Intern &middot; Seattle, WA</p>
+          <ul class="bul">
+            <li>Containerized and migrated backend services and PostgreSQL from <strong>AWS EC2</strong> to <strong>Google Kubernetes Engine</strong>, cutting deployment time by <b class="num">60%</b>.</li>
+            <li>Built <strong>CI/CD pipelines</strong> with GitHub Actions to automate build, test and deployment across 3 microservices.</li>
+            <li>Implemented Kubernetes deployments, ReplicaSets, HPA and load balancing, and configured IAM, VPC, Helm charts and rollout strategies using <strong>kubectl</strong> and the GCloud CLI.</li>
+          </ul>
+          <div class="tags"><span class="tag">GKE</span><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">GitHub Actions</span><span class="tag">Helm</span></div>
+        </article>
+      </div>
+    </div>
+    <div class="status"><span>1 position</span><span>Seattle, WA</span></div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="win" data-win="projects" data-x="140" data-y="60" data-w="660" data-h="640" aria-labelledby="t-proj">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-proj">Projects</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Projects"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Projects"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Projects"></button></div>
+    <div class="body">
+      <div class="stack">
+        <h2>Projects</h2>
+        <hr class="rule">
+
+        <article class="entry">
+          <div class="head">
+            <h3>AIFriends &mdash; AI Companion Platform</h3>
+            <span class="when">Jan 2026 &ndash; present</span>
+          </div>
+          <p class="lede">An AI chat companion that answers token-by-token as it thinks, and remembers a conversation past the point where most chatbots forget it.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Vue 3</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">LanceDB</span></div>
+          <ul class="bul">
+            <li>Architected a full-stack AI companion platform with a <strong>Django REST Framework</strong> backend and a <strong>Vue 3</strong> SPA frontend, using <strong>JWT</strong> tokens (<b class="num">2h access / 7d refresh</b>, rotated and blacklisted) with silent refresh across REST and Server-Sent Events.</li>
+            <li>Designed an agentic <strong>RAG</strong> system in <strong>LangGraph</strong> that invokes a <strong>LanceDB</strong> vector-search tool through a self-authored LangChain adapter for a custom OpenAI-compatible LLM.</li>
+            <li>Implemented hierarchical memory: the last <b class="num">10 exchanges</b> are periodically summarized into long-term memory.</li>
+            <li>Replaced the blocking, wait-for-full-response chat flow with token-by-token <strong>SSE</strong> streaming, surfacing the first token immediately instead of after full generation.</li>
+          </ul>
+          <a class="src" data-ico="repo" href="https://github.com/Phase1es2/LLM-App" target="_blank" rel="noopener noreferrer">Phase1es2/LLM-App <span class="arw" aria-hidden="true">&#8599;</span><span class="sr">(opens on GitHub)</span></a>
+        </article>
+
+        <hr class="rule">
+
+        <article class="entry">
+          <div class="head">
+            <h3>Smart Photo Album &mdash; AI Natural Language Search</h3>
+            <span class="when">Oct 2025 &ndash; Dec 2025</span>
+          </div>
+          <p class="lede">A photo library you search in plain English &mdash; &ldquo;dogs at the beach&rdquo; &mdash; with every upload labelled automatically the moment it lands.</p>
+          <div class="tags"><span class="tag">AWS</span><span class="tag">S3</span><span class="tag">Amazon Lex</span><span class="tag">OpenSearch</span><span class="tag">Rekognition</span><span class="tag">CloudFormation</span></div>
+          <ul class="bul">
+            <li>Engineered a serverless photo app on <strong>AWS Lambda</strong>, <strong>API Gateway</strong> and <strong>S3</strong>: uploads go through presigned PUT URLs and are auto-indexed by an S3-triggered Lambda; <strong>Amazon Lex</strong> resolves search queries into keywords matched against <strong>OpenSearch</strong>.</li>
+            <li>Built a pipeline merging <strong>Amazon Rekognition</strong> auto-labels (<b class="num">top 15 labels, &ge;70% confidence</b>) with custom S3-metadata labels, deduplicated and indexed into OpenSearch.</li>
+            <li>Defined the full stack &mdash; API Gateway, S3-to-Lambda triggers, least-privilege IAM, <b class="num">3 Lambdas</b> &mdash; as <strong>CloudFormation</strong> IaC via AWS CodeBuild.</li>
+          </ul>
+          <a class="src" data-ico="repo" href="https://github.com/Phase1es2/Photo-Album" target="_blank" rel="noopener noreferrer">Phase1es2/Photo-Album <span class="arw" aria-hidden="true">&#8599;</span><span class="sr">(opens on GitHub)</span></a>
+        </article>
+
+        <hr class="rule">
+
+        <article class="entry">
+          <div class="head">
+            <h3>Dining Concierge Chatbot</h3>
+            <span class="when">Sep 2025 &ndash; Oct 2025</span>
+          </div>
+          <p class="lede">A restaurant-booking chatbot that holds a multi-turn conversation, then emails you the picks.</p>
+          <div class="tags"><span class="tag">Amazon Lex</span><span class="tag">DynamoDB</span><span class="tag">SQS</span><span class="tag">OpenSearch</span><span class="tag">SES</span><span class="tag">Yelp API</span></div>
+          <ul class="bul">
+            <li>Built a serverless dining chatbot where <strong>Amazon Lex</strong> handles multi-turn slot filling (location, cuisine, date/time, party size, email) and a Lambda hook enforces booking rules before queuing to <strong>SQS</strong>.</li>
+            <li>Designed the REST API on API Gateway and AWS Lambda as a Lex proxy, pinning session IDs to fix a slot-reset bug.</li>
+            <li>Scraped and stored <b class="num">1,600+</b> Manhattan restaurants across <b class="num">8 cuisines</b> via the Yelp API into <strong>DynamoDB</strong> (full records) and OpenSearch (id + cuisine index).</li>
+            <li>Automated recommendation delivery with a scheduled Lambda that queries up to <b class="num">100 OpenSearch matches</b>, randomly samples <b class="num">5</b>, joins DynamoDB details and emails picks via <strong>Amazon SES</strong>.</li>
+          </ul>
+          <a class="src" data-ico="repo" href="https://github.com/Phase1es2/Cloud-Chatbot" target="_blank" rel="noopener noreferrer">Phase1es2/Cloud-Chatbot <span class="arw" aria-hidden="true">&#8599;</span><span class="sr">(opens on GitHub)</span></a>
+        </article>
+      </div>
+    </div>
+    <div class="status"><span>3 items</span><span>source on GitHub</span></div>
+  </section>
+
+  <!-- TERMINAL -->
+  <section class="win term" data-win="terminal" data-x="330" data-y="200" data-w="620" data-h="440" aria-labelledby="t-term">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-term">Terminal</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Terminal"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Terminal"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Terminal"></button></div>
+    <div class="body">
+      <div class="term-wrap">
+        <div class="term-out" id="tOut" role="log"></div>
+        <p class="sr" id="tSay" aria-live="polite" aria-atomic="true"></p>
+        <div class="term-row">
+          <span class="ps1" id="ps1" aria-hidden="true">hao@hy-os:~$</span>
+          <input class="term-in" id="tIn" type="text" autocomplete="off" autocapitalize="off"
+                 autocorrect="off" spellcheck="false" placeholder="type help"
+                 aria-label="Terminal command input">
+        </div>
+      </div>
+    </div>
+    <div class="status"><span>hysh 1.0</span><span>tab completes &middot; &uarr; recalls</span></div>
+  </section>
+
+  <!-- PLAYER -->
+  <section class="win" data-win="player" data-x="960" data-y="96" data-w="430" data-h="356" aria-labelledby="t-player">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-player">Player</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Player"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Player"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Player"></button></div>
+    <div class="body">
+      <!-- The cassette IS the player. Everything that used to sit under it is
+           now a marking on the shell or a key on the deck lip. -->
+      <div class="stack pl">
+        <div class="tape" id="plTape">
+          <div class="cass">
+            <div class="cass-label">
+              <div class="cl-top">
+                <button class="cl-no" type="button" id="plNo"
+                        aria-expanded="false" aria-controls="plList"
+                        aria-label="Track 1. Show the tape index">01</button>
+                <span class="cl-line">
+                  <span class="pl-title" id="plTitle">&mdash;</span>
+                  <span class="pl-sub" id="plSub">&mdash;</span>
+                </span>
+                <span class="cl-side" aria-hidden="true">SIDE<b>A</b></span>
+              </div>
+
+              <button class="cass-win" type="button" id="plWin" aria-label="Play">
+                <span class="reel reel-a" aria-hidden="true"><i class="pack"></i><i class="hub"></i></span>
+                <span class="tape-span" aria-hidden="true"><i></i></span>
+                <span class="reel reel-b" aria-hidden="true"><i class="pack"></i><i class="hub"></i></span>
+              </button>
+
+              <div class="cl-foot">
+                <span class="cl-brand" aria-hidden="true">HY&#183;01</span>
+                <span class="cl-pos" role="group" aria-label="Tape position">
+                  <button class="pos-b" type="button" id="plModeFile" aria-pressed="true">TAPE</button>
+                  <button class="pos-b" type="button" id="plModeChip" aria-pressed="false">SYNTH</button>
+                </span>
+                <span class="cl-len" id="plCat" aria-hidden="true">C&#8209;46</span>
+              </div>
+
+              <!-- the J-card index, folded away until the track number is pressed -->
+              <div class="idx" id="plIdx" hidden>
+                <div class="idx-h">
+                  <span aria-hidden="true">INDEX</span>
+                  <button class="idx-x" type="button" id="plIdxX" aria-label="Close the tape index">&times;</button>
+                </div>
+                <ol class="pl-list" id="plList"></ol>
+                <p class="pl-note" id="plNote"></p>
+              </div>
+            </div>
+
+            <div class="cass-base" aria-hidden="true">
+              <i class="scr s1"></i><i class="scr s2"></i>
+              <i class="scr s3"></i><i class="scr s4"></i>
+              <i class="hole h1"></i><i class="hole h2"></i>
+              <i class="pad"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- the deck lip the tape sits in -->
+        <div class="lip">
+          <button class="key" type="button" id="plPrev" aria-label="Previous track"></button>
+          <button class="key key-w" type="button" id="plPlay" aria-label="Play"></button>
+          <button class="key" type="button" id="plNext" aria-label="Next track"></button>
+          <canvas class="pl-viz" id="plViz" width="120" height="24" aria-hidden="true"></canvas>
+          <span class="dk-time" id="plTime">0:00</span>
+          <span class="dk-vol">
+            <input type="range" id="plVol" min="0" max="100" value="35" aria-label="Volume">
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="status"><span></span><span></span></div>
+  </section>
+
+  <section class="win" data-win="pacman" data-x="470" data-y="60" data-w="452" data-h="660" aria-labelledby="t-pac">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-pac">Pac-Man</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Pac-Man"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Pac-Man"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Pac-Man"></button></div>
+    <div class="body">
+      <div class="stack pac">
+        <div class="pac-cab">
+          <div class="pac-marquee" aria-hidden="true"><span>ＨＹ</span> PAC-MAN <span>ゲーム</span></div>
+          <div class="pac-hud">
+            <div class="pac-stat"><b>1UP</b><span id="pacScore">000000</span></div>
+            <div class="pac-stat"><b>ハイスコア</b><span id="pacHigh">000000</span></div>
+            <div class="pac-stat"><b>ラウンド</b><span id="pacLevel">01</span></div>
+            <div class="pac-stat"><b>のこり</b><span id="pacLives">●●●</span></div>
+          </div>
+          <div class="pac-screen">
+            <div class="pac-view" id="pacView">
+              <canvas id="pacCv" width="224" height="248" role="img"
+                aria-label="Pac-Man maze. Score and lives are listed above the board."></canvas>
+              <div class="pac-msg" id="pacMsgWrap"><span id="pacMsg">PRESS START</span></div>
+              <div class="pac-crt" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+        <div class="pac-pad" id="pacPad">
+          <button class="pac-dir" type="button" data-dir="up" aria-label="Move up">▲</button>
+          <button class="pac-dir" type="button" data-dir="left" aria-label="Move left">◀</button>
+          <button class="pac-dir" type="button" data-dir="down" aria-label="Move down">▼</button>
+          <button class="pac-dir" type="button" data-dir="right" aria-label="Move right">▶</button>
+        </div>
+        <div class="pac-foot">
+          <button class="pac-btn" type="button" id="pacStart">START</button>
+          <button class="pac-btn" type="button" id="pacPause">PAUSE</button>
+          <button class="pac-btn" type="button" id="pacSound" aria-pressed="false">SOUND</button>
+        </div>
+        <p class="pac-hint">Arrows or WASD to move &middot; P pauses &middot; R restarts &middot; swipe on the board on a phone</p>
+      </div>
+    </div>
+  </section>
+  <section class="win" data-win="recruiter" data-x="300" data-y="70" data-w="700" data-h="620" aria-labelledby="t-recr">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-recr">Recruiter View</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Recruiter View"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Recruiter View"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Recruiter View"></button></div>
+    <div class="body">
+      <div class="ns" id="onepage">
+    <div class="rm-bar rm-only">
+      <a class="dl rm-pdf" href="HY_resume.pdf" data-resume>Download r&eacute;sum&eacute; (PDF)</a>
+    </div>
+    <h2 class="rm-name">Hao Yang</h2>
+    <p class="role">Software Engineer &middot; Brooklyn, NY</p>
+    <p class="ns-only">This site is an interactive desktop that needs JavaScript.
+    Here is everything it contains, as plain text.</p>
+
+    <h2>About</h2>
+    <p>M.S. Computer Engineering at NYU, finishing May 2026. I build server-side systems &mdash;
+    retrieval pipelines, event-driven AWS backends, containerized services and the CI that keeps
+    them honest. <strong>Actively seeking intern and full-time software development roles starting
+    May 2026.</strong></p>
+
+    <h2>Experience</h2>
+    <p><strong>Interview Bot</strong> &mdash; Software Development Engineer Intern, Seattle WA
+    (Sep&ndash;Dec 2023). Migrated backend services and PostgreSQL from AWS EC2 to Google Kubernetes
+    Engine, cutting deployment time by 60%. Built CI/CD pipelines with GitHub Actions across three
+    microservices. Configured Kubernetes deployments, HPA, load balancing, IAM, VPC and Helm charts.</p>
+
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>AIFriends</strong> &mdash; agentic RAG companion platform. Django REST + Vue 3, JWT
+      auth, LangGraph invoking a LanceDB vector-search tool, token-by-token SSE streaming.
+      <a href="https://github.com/Phase1es2/LLM-App">github.com/Phase1es2/LLM-App</a></li>
+      <li><strong>Smart Photo Album</strong> &mdash; serverless natural-language photo search on AWS
+      Lambda, API Gateway, S3, Amazon Lex, Rekognition and OpenSearch, defined as CloudFormation IaC.
+      <a href="https://github.com/Phase1es2/Photo-Album">github.com/Phase1es2/Photo-Album</a></li>
+      <li><strong>Dining Concierge Chatbot</strong> &mdash; multi-turn Lex booking bot over 1,600+
+      Manhattan restaurants in DynamoDB and OpenSearch, with SQS queueing and SES email delivery.
+      <a href="https://github.com/Phase1es2/Cloud-Chatbot">github.com/Phase1es2/Cloud-Chatbot</a></li>
+    </ul>
+
+    <h2>Skills</h2>
+    <p class="m">C/C++ &middot; Python &middot; Java &middot; Go &middot; SQL &middot; JavaScript &middot; C#<br>
+    AWS &middot; GCP &middot; Docker &middot; Kubernetes &middot; REST &middot; Redis &middot; PostgreSQL &middot; MySQL &middot; JWT<br>
+    FastAPI &middot; Flask &middot; Django &middot; Spring Boot &middot; React &middot; Vue 3<br>
+    PyTorch &middot; TensorFlow &middot; CUDA &middot; TorchScript &middot; GPU profiling</p>
+
+    <h2>Education</h2>
+    <p><strong>New York University</strong> &mdash; M.S. Computer Engineering, Sep 2024 &ndash; May 2026<br>
+    <strong>University of Washington</strong> &mdash; B.S. Computer Science &amp; Software Engineering,
+    Mar 2021 &ndash; Dec 2023<br>
+    <strong>University of Washington</strong> &mdash; B.S. Mathematical Thinking &amp; Visualization,
+    Mar 2021 &ndash; Dec 2023</p>
+
+    <h2>Contact</h2>
+    <p class="m"><a href="mailto:hy3169@nyu.edu">hy3169@nyu.edu</a><br>
+    <a href="https://github.com/Phase1es2">github.com/Phase1es2</a><br>
+    <a href="https://www.linkedin.com/in/haoyang17/">linkedin.com/in/haoyang17</a><br>
+    <a href="HY_resume.pdf">R&eacute;sum&eacute; (PDF)</a></p>
+  </div>
+    </div>
+    <div class="status"><span>30-second version</span><span>r&eacute;sum&eacute; &middot; projects &middot; contact</span></div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="win" data-win="skills" data-x="400" data-y="200" data-w="680" data-h="480" aria-labelledby="t-skills">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-skills">Skills</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Skills"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Skills"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Skills"></button></div>
+    <div class="body">
+      <div class="stack">
+        <h2>Technical Skills</h2>
+        <hr class="rule">
+        <dl class="grid2">
+          <dt>Languages</dt><dd>C/C++ &middot; Python &middot; Java &middot; Go &middot; SQL &middot; JavaScript &middot; HTML/CSS &middot; C# &middot; ARM Assembly &middot; YAML</dd>
+          <dt>Web / DevOps</dt><dd>AWS &middot; GCP &middot; Docker &middot; Kubernetes &middot; REST &middot; Redis &middot; Git &middot; PostgreSQL &middot; MySQL &middot; Maven &middot; JWT</dd>
+          <dt>Frameworks</dt><dd>FastAPI &middot; Flask &middot; Django &middot; Spring Boot &middot; React &middot; Vue 3 &middot; Unity3D</dd>
+          <dt>Machine Learning</dt><dd>PyTorch &middot; TensorFlow &middot; Keras &middot; NumPy &middot; Pandas &middot; MLflow</dd>
+          <dt>DL Systems</dt><dd>CUDA &middot; cuDNN &middot; TorchScript &middot; GPU profiling &middot; model inference optimization</dd>
+          <dt>AI-Assisted</dt><dd>Claude Code &mdash; agentic coding for full-stack feature development</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="status"><span>6 categories</span><span>C:\SKILLS</span></div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="win" data-win="education" data-x="230" data-y="180" data-w="700" data-h="580" aria-labelledby="t-edu">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-edu">Education</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Education"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Education"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Education"></button></div>
+    <div class="body">
+      <div class="stack">
+        <h2>Education</h2>
+        <hr class="rule">
+        <article class="entry">
+          <div class="head"><h3>New York University</h3><span class="when">Sep 2024 &ndash; May 2026</span></div>
+          <p class="where">M.S. Computer Engineering &middot; Brooklyn, NY</p>
+          <p class="course">Machine Learning &middot; High Performance Machine Learning &middot; Deep Learning &middot; Operating Systems &middot; Cloud Computing &middot; DevOps &middot; Internet Architecture &amp; Protocols &middot; Java Programming</p>
+        </article>
+        <hr class="rule">
+        <article class="entry">
+          <div class="head"><h3>University of Washington</h3><span class="when">Mar 2021 &ndash; Dec 2023</span></div>
+          <p class="where">B.S. Computer Science &amp; Software Engineering &middot; Seattle, WA</p>
+          <p class="course">Data Structures &amp; Algorithms &middot; C/C++ &middot; Operating Systems &middot; Databases &middot; AI &middot; Cybersecurity &middot; Hardware Organization &middot; Networking</p>
+        </article>
+        <hr class="rule">
+        <article class="entry">
+          <div class="head"><h3>University of Washington</h3><span class="when">Mar 2021 &ndash; Dec 2023</span></div>
+          <p class="where">B.S. Mathematical Thinking &amp; Visualization &middot; Seattle, WA</p>
+          <p class="course">Linear Algebra &middot; Statistics</p>
+        </article>
+      </div>
+    </div>
+    <div class="status"><span>3 degrees</span><span>NYU &middot; UW &times;2</span></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="win" data-win="contact" data-x="520" data-y="100" data-w="510" data-h="510" aria-labelledby="t-contact">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-contact">Contact</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Contact"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Contact"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Contact"></button></div>
+    <div class="body">
+      <div class="stack">
+        <h2>Get in touch</h2>
+        <hr class="rule">
+        <p>The fastest way to reach me is email &mdash; I read everything and reply to anything that isn&rsquo;t a mass send.</p>
+        <p><button class="mail" type="button" id="mailTrigger">hy3169@nyu.edu</button></p>
+        <div class="links">
+          <a class="dl" href="https://github.com/Phase1es2" target="_blank" rel="noopener noreferrer" data-ico="github">GitHub</a>
+          <a class="dl" href="https://www.linkedin.com/in/haoyang17/" target="_blank" rel="noopener noreferrer" data-ico="linkedin">LinkedIn</a>
+        </div>
+        <hr class="rule">
+        <dl class="grid2">
+          <dt>Based in</dt><dd>Brooklyn, New York</dd>
+          <dt>Open to</dt><dd>Intern &amp; full-time SWE, from May 2026</dd>
+          <dt>Timezone</dt><dd>ET (UTC&minus;5 / &minus;4)</dd>
+          <dt>Code</dt><dd>github.com/Phase1es2</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="status"><span>3 channels</span><span>online</span></div>
+  </section>
+
+  <!-- RESUME -->
+  <section class="win" data-win="resume" data-x="180" data-y="60" data-w="760" data-h="700" aria-labelledby="t-res">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-res">HY_resume.pdf</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize resume"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize resume"></button>
+      <button class="tbtn" data-act="close" aria-label="Close resume"></button></div>
+    <div class="body">
+      <div class="stack tight">
+        <h2>R&eacute;sum&eacute;</h2>
+        <hr class="rule">
+        <a class="dl" href="HY_resume.pdf" data-resume>Download the PDF</a>
+        <img class="resume-shot" src="data:image/jpeg;base64,

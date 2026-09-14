@@ -1,0 +1,70 @@
+/* ---------- File Download dialog (classic Windows) ---------- */
+#fdWrap{position:fixed;inset:0;z-index:62;display:grid;place-items:center;padding:16px}
+#fdWrap[hidden]{display:none}
+#fdVeil{position:absolute;inset:0;background:rgba(11,7,24,.5)}
+.fd{
+  position:relative;width:min(430px,100%);background:var(--face);padding:3px;
+  display:flex;flex-direction:column;
+  box-shadow:var(--bevel-out),5px 7px 0 rgba(9,5,22,.5);
+}
+.fd-body{
+  background:var(--face);padding:18px 18px 14px;display:flex;flex-direction:column;gap:14px;
+}
+.fd-row{display:flex;gap:14px;align-items:flex-start}
+.fd-row svg{width:32px;height:32px;flex:none}
+.fd-txt{display:flex;flex-direction:column;gap:5px;min-width:0}
+.fd-name{font-family:var(--mono);font-size:14px;color:var(--ink);word-break:break-all}
+.fd-q{font-size:14px;color:var(--ink);margin:0}
+.fd-meta{
+  display:grid;grid-template-columns:auto 1fr;gap:3px 12px;
+  font-family:var(--mono);font-size:12px;color:var(--ink-soft);
+}
+.fd-meta b{font-weight:400;color:var(--ink-soft)}
+.fd-btns{display:flex;justify-content:flex-end;gap:8px;padding-top:2px}
+.fd-btns .dl{min-height:30px;padding:0 22px;align-self:auto;display:inline-flex;align-items:center}
+.fd-btns .dl[data-default]{font-weight:600}
+/* progress */
+.fd-track{
+  height:20px;background:var(--paper);padding:2px;box-shadow:var(--bevel-in);
+  display:flex;gap:2px;overflow:hidden;
+}
+.fd-track i{
+  flex:none;width:10px;background:var(--violet);
+  animation:fdBlock .5s ease-in-out infinite alternate;
+}
+@keyframes fdBlock{from{opacity:.75}to{opacity:1}}
+.fd-pct{font-family:var(--mono);font-size:12px;color:var(--ink-soft);text-align:right}
+.fd-ok{color:var(--good,#1F7F5C);font-weight:700}
+@media (prefers-reduced-motion:reduce){.fd-track i{animation:none}}
+
+/* Touch targets: WCAG 2.5.5 / HIG floor of 44px, mobile only —
+   desktop keeps its denser spacing. */
+@media (max-width:899.98px){
+  #startmenu button,#startmenu a{min-height:44px;padding:11px 10px}
+  .src{min-height:44px;padding:0 12px}
+  .dl{min-height:44px;display:inline-flex;align-items:center}
+  .mail{min-height:44px;display:inline-flex;align-items:center}
+  .pbtn{height:44px;width:52px}
+  .pl-list button{padding:15px 12px}
+  .term-row{padding-top:12px;padding-bottom:8px;align-items:center}
+  .term-in{min-height:44px}
+  .pl input[type="range"],#volPop input[type="range"]{height:44px}
+  .pl input[type="range"]::-webkit-slider-thumb{margin-top:-6px}
+  #resumeBtn,#armHint,#start,.task{height:44px}
+  #volBtn{width:44px;height:44px}
+  #muteBtn{min-height:44px}
+  .icon{width:104px;padding:10px 4px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+}
+
+/* Touch-target floor for the two newest components. Appended last so this is
+   unambiguously the winning rule regardless of where the components' own
+   styles were inserted. */
+@media (max-width:899.98px){
+  .qq-bar{min-height:44px}
+  .qq-x{width:44px;height:44px}
+  .qq-foot .dl,.fd-btns .dl{min-height:44px}
+}

@@ -1,0 +1,70 @@
+
+:root{
+  /* City-pop dusk */
+  --sky-deep:#221A46;
+  --indigo:#1A2247;
+  --magenta:#E85A9B;
+  --amber:#F5A657;
+  --cyan:#6FD6E8;
+  --violet:#6B3FA0;
+
+  /* Chassis — grey biased toward the violet accent */
+  --face:#C7C3CF;
+  --face-lit:#F1EFF6;
+  --face-dim:#8E8899;
+  --face-dark:#413A52;
+  --paper:#FBFAFD;
+  --ink:#191624;
+  --ink-soft:#514A63;
+  --rule:#D6D2DE;
+
+  --title-a:#3A2668;
+  --title-b:#E85A9B;
+  /* The titlebar gradient ends darker than --title-b: white on #E85A9B is
+     3.3:1, which fails AA for a long window title that reaches that far.
+     #C43C75 is 4.94:1 and reads as the same magenta at a glance. */
+  --title-end:#C43C75;
+  --title-idle-a:#6E6880;
+  --title-idle-b:#A9A3B6;
+
+  --taskbar:64px;
+
+  /* Bevels — one canonical light ramp for the whole interface.
+     Raised: top-left is face-lit then #fff going inward; bottom-right is
+     face-dark then face-dim. Sunken is the exact mirror of that. */
+  --bevel-out:
+    inset -1px -1px 0 var(--face-dark),
+    inset  1px  1px 0 var(--face-lit),
+    inset -2px -2px 0 var(--face-dim),
+    inset  2px  2px 0 #fff;
+  --bevel-in:
+    inset  1px  1px 0 var(--face-dark),
+    inset -1px -1px 0 #fff,
+    inset  2px  2px 0 var(--face-dim),
+    inset -2px -2px 0 var(--face-lit);
+  --bevel-in-1:
+    inset  1px  1px 0 var(--face-dim),
+    inset -1px -1px 0 #fff;
+  --bevel-groove:
+    inset  1px  1px 0 var(--face-dark),
+    inset -1px -1px 0 #fff;
+
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --ui:"DotGothic16","Zen Kaku Gothic New",system-ui,sans-serif;
+  --body:"Zen Kaku Gothic New",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--indigo);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:15px;
+  line-height:1.6;
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+body.flow{overflow:auto}
+

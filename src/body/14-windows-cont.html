@@ -1,0 +1,91 @@
+" alt="Resume of Hao Yang: education at NYU and University of Washington, technical skills, one software engineering internship at Interview Bot, and three projects.">
+      </div>
+    </div>
+    <div class="status"><span>page 1 of 1</span><span>PDF</span></div>
+  </section>
+
+  <!-- ATTIC ----------------------------------------------------------------
+       Deliberately absent from WORK, PLAY and ORDER: no desktop icon, no Start
+       menu entry, no link in the mobile section nav. The only ways in are in
+       97-eggs.js. It is listed in ALLWINS so the window manager and the
+       taskbar treat it like any other window once it is open. -->
+  <section class="win attic hush" data-win="attic" data-hush data-x="300" data-y="130" data-w="600" data-h="500" aria-labelledby="t-attic">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-attic">C:\HAO\ATTIC</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Attic"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Attic"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Attic"></button></div>
+    <div class="body">
+      <div class="stack">
+        <div>
+          <p class="eyebrow">&#23627;&#26681;&#35023; &middot; undocumented</p>
+          <h2>You found the room with no door.</h2>
+        </div>
+        <hr class="rule">
+        <p>Everything on this desktop &mdash; the window manager, the wallpaper, the
+          tape deck, the maze, this room &mdash; is one HTML file served from a bucket.
+          No framework, no bundler at runtime, no backend, no analytics, nothing
+          phoning home. The whole thing is about 210&nbsp;KB, which is smaller than
+          the hero image on most portfolio sites.</p>
+        <hr class="rule">
+        <h3>How it is actually built</h3>
+        <ul>
+          <li><b>Windows</b> &mdash; drag, eight-edge resize, maximise, minimise,
+            z-order and a taskbar, written by hand. No library.</li>
+          <li><b>Wallpaper</b> &mdash; canvas 2d, drawn from a seeded PRNG so the
+            city is the same city on every load. The neon signs flicker on a
+            timer, not a frame loop, so an idle tab schedules nothing.</li>
+          <li><b>Tape deck</b> &mdash; Web Audio. In synth mode there are no files
+            at all: FM piano, a filtered saw bass and noise drums, sequenced live.
+            The spools wind at the right speed because the radius is
+            &radic;(hub&sup2; + fraction &middot; (full&sup2; &minus; hub&sup2;)).</li>
+          <li><b>Pac-Man</b> &mdash; tile movement with sub-tile interpolation, the
+            four original ghost targeting rules, scatter/chase waves.</li>
+          <li><b>Discipline</b> &mdash; every animation loop is gated on being
+            visible and in front. An untouched desktop costs zero frames.</li>
+        </ul>
+        <hr class="rule">
+        <h3>System report</h3>
+        <pre class="attic-sys" id="atticSys"></pre>
+        <hr class="rule">
+        <h3>The hidden layer</h3>
+        <p class="dlg-hint">Ten of them. Locked ones show the hint, never the trick.</p>
+        <div class="egg-board" id="atticEggs"></div>
+        <hr class="rule">
+        <p class="dlg-hint">If you got here you have read further into this than
+          most people read into a r&eacute;sum&eacute;. Say hello:
+          <a href="mailto:hy3169@nyu.edu">hy3169@nyu.edu</a>.</p>
+      </div>
+    </div>
+    <div class="status"><span id="atticFoot">attic</span><span>read-only</span></div>
+  </section>
+
+  <!-- SIGNAL.EXE ------------------------------------------------------------
+       Same deal as the attic: in ALLWINS so the window manager, taskbar and
+       mobile fold control know about it, absent from ORDER so it has no icon,
+       no Start entry and no section link. The three views below are empty
+       shells — 98-signal.js fills whichever one is asked for and never builds
+       a sprite until an encounter actually happens. -->
+  <section class="win hush" data-win="dex" data-hush data-x="392" data-y="104" data-w="446" data-h="566" aria-labelledby="t-sig">
+    <div class="titlebar"><i class="dot" aria-hidden="true"></i><span class="t" id="t-sig">SIGNAL.EXE</span>
+      <button class="tbtn" data-act="min" aria-label="Minimize Signal"></button>
+      <button class="tbtn" data-act="max" data-state="max" aria-label="Maximize Signal"></button>
+      <button class="tbtn" data-act="close" aria-label="Close Signal"></button></div>
+    <div class="body">
+      <div class="stack sig">
+        <div class="sig-cab">
+          <div class="pac-marquee" aria-hidden="true"><span>&#65320;&#65337;</span> SIGNAL <span>&#12375;&#12435;&#12372;&#12358;</span></div>
+          <div class="sig-screen" id="sigScreen">
+            <div class="sig-view" id="sigEnc" role="group" aria-label="Encounter" hidden></div>
+            <div class="sig-view" id="sigEntry" role="group" aria-label="Index entry" hidden></div>
+            <div class="sig-view" id="sigIndex" role="group" aria-label="Signal index" hidden></div>
+          </div>
+        </div>
+        <div class="pac-foot" id="sigKeys"></div>
+        <p class="pac-hint" id="sigHint"></p>
+      </div>
+    </div>
+    <div class="status"><span id="sigCount">0 / 10</span><span>&#12375;&#12435;&#12372;&#12358;</span></div>
+  </section>
+
+</main>
+

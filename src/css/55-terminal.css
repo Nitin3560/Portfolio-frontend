@@ -1,0 +1,31 @@
+/* ---------- terminal ---------- */
+.win.term .body{
+  background:#0B0718;padding:0;
+  box-shadow:var(--bevel-in);
+}
+.term-wrap{
+  height:100%;display:flex;flex-direction:column;padding:11px 13px 12px;
+  font-family:var(--mono);font-size:13px;line-height:1.55;cursor:text;
+}
+.term-out{flex:1;min-height:0;overflow:auto;color:#BFE3EE;white-space:pre-wrap;word-break:break-word}
+body.flow .term-wrap{height:auto}
+body.flow .term-out{max-height:none;overflow:visible}
+.tl{margin:0}
+.tl.cmd{color:#F5A657}
+.tl.err{color:#F2789F}
+.tl.dim{color:#8B7DBA}
+.tl.head{color:#6FD6E8;font-weight:600}
+.tl b{color:#FFF0B8;font-weight:600}
+.tl .k{color:#6FD6E8}
+.tl .v{color:#BFE3EE}
+.tl a{color:#F2789F}
+.term-row{display:flex;align-items:baseline;gap:8px;flex:none;padding-top:5px}
+.ps1{color:#F5A657;flex:none;white-space:nowrap}
+.term-in{
+  flex:1;min-width:0;background:transparent;border:0;outline:0;padding:0;
+  font-family:var(--mono);font-size:13px;color:#EAF6FA;caret-color:#6FD6E8;
+}
+.term-in::placeholder{color:#4E4470}
+
+body.flow .win.term .body{padding:0}
+

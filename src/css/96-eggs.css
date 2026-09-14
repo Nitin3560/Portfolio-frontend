@@ -1,0 +1,133 @@
+/* ---------- the hidden layer ----------
+   CRT mode, midnight mode, the discovery toast, the attic and the joke crash.
+   Nothing here is on a menu; every rule is inert until a class is set. */
+
+/* CRT mode intensifies the scanline overlay the desktop already has rather
+   than stacking a second one on top of it — and lifts it above the windows,
+   because a monitor covers whatever is on it. It stays under the dialogs
+   (z 60+) so a modal is still crisp enough to read. */
+html.crt #scan{
+  z-index:47;
+  opacity:1;
+  background:
+    repeating-linear-gradient(to bottom,rgba(0,0,0,.26) 0 1px,transparent 1px 3px),
+    repeating-linear-gradient(to right,
+      rgba(255,60,140,.06) 0 1px,rgba(90,240,220,.06) 1px 2px,transparent 2px 3px);
+}
+html.crt #scan::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(120% 92% at 50% 46%,transparent 30%,rgba(6,3,16,.86) 100%),
+    linear-gradient(196deg,rgba(255,255,255,.07) 0 22%,transparent 42%);
+}
+html.crt #wall{filter:saturate(1.35) contrast(1.12) brightness(1.18)}
+html.crt .win .titlebar .t{text-shadow:0 0 5px rgba(255,140,200,.6)}
+/* the two tells that read instantly: mains flicker and a slow roll bar */
+@media (prefers-reduced-motion:no-preference){
+  html.crt #scan{animation:crtFlick 6.5s steps(1,end) infinite}
+  html.crt #scan::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:15vh;
+    background:linear-gradient(to bottom,transparent,rgba(255,255,255,.06) 46%,transparent);
+    animation:crtRoll 7.5s linear infinite;
+  }
+}
+@keyframes crtFlick{
+  0%,95%{opacity:1} 96%{opacity:.78} 97%{opacity:1} 98%{opacity:.86} 100%{opacity:1}
+}
+@keyframes crtRoll{from{transform:translateY(-20vh)}to{transform:translateY(105vh)}}
+
+/* Midnight: the same city, four hours later. */
+html.midnight #wall{filter:hue-rotate(-18deg) saturate(.8) brightness(.72)}
+html.midnight #scan{opacity:.64}
+html.midnight #idplate{opacity:.42}
+
+/* ---------- discovery toast ----------
+   Bottom-left, so it never lands on top of the Recruiter View notification. */
+#egg{
+  position:fixed;left:14px;bottom:calc(var(--taskbar) + 12px);z-index:63;
+  width:min(292px,calc(100vw - 28px));
+  background:var(--face);padding:3px;
+  box-shadow:var(--bevel-out),5px 7px 0 rgba(9,5,22,.5);
+  font-family:var(--ui);
+}
+#egg[hidden]{display:none}
+.egg-bar{
+  display:flex;align-items:center;gap:7px;min-height:26px;padding:3px 3px 3px 7px;
+  background:linear-gradient(90deg,#1D1140,#6B3FA0 62%,#E85A9B);
+  color:#fff;font-size:12px;letter-spacing:.09em;
+}
+.egg-bar .egg-t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.egg-dot{width:8px;height:8px;flex:none;background:#6FD6E8;box-shadow:0 0 6px #6FD6E8}
+.egg-x{
+  width:22px;height:20px;flex:none;border:0;cursor:pointer;background:var(--face);
+  box-shadow:var(--bevel-out);position:relative;
+}
+.egg-x::before,.egg-x::after{
+  content:"";position:absolute;left:5px;top:9px;width:11px;height:2px;background:var(--ink);
+}
+.egg-x::before{transform:rotate(45deg)}
+.egg-x::after{transform:rotate(-45deg)}
+.egg-body{
+  display:flex;flex-direction:column;gap:3px;padding:10px 11px 8px;
+  background:var(--face);
+}
+.egg-body b{font-family:var(--mono);font-size:14px;color:var(--title-a);letter-spacing:.06em}
+.egg-body span{font-size:12.5px;color:var(--ink-soft);line-height:1.45}
+.egg-foot{
+  padding:6px 11px 9px;font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);
+  display:flex;align-items:center;gap:8px;
+}
+.egg-meter{flex:1;height:6px;background:var(--paper);box-shadow:var(--bevel-in-1);position:relative}
+.egg-meter i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#6B3FA0,#E85A9B)}
+@media (prefers-reduced-motion:no-preference){
+  #egg{animation:eggIn .22s ease-out both}
+}
+@keyframes eggIn{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}
+@media (max-width:899.98px){
+  .egg-bar{min-height:44px;padding-right:0}
+  .egg-x{width:44px;height:44px}
+  .egg-x::before,.egg-x::after{left:16px;top:21px}
+}
+
+/* A window with no icon and no menu entry is invisible on the desktop simply
+   by not being open — but the mobile stack renders every .win as a section
+   regardless, so it would sit there in plain sight on a phone. These two are
+   pulled out of the flow until something opens them. */
+/* both of the rules this has to beat carry !important, so this one does too */
+body.flow .win.hush,html.js-failed .win.hush{display:none !important}
+
+/* ---------- the attic ---------- */
+.win.attic .body{background:var(--paper)}
+.attic-sys{
+  margin:0;padding:11px 12px;background:#0B0718;color:#BFE3EE;
+  font-family:var(--mono);font-size:12.5px;line-height:1.6;
+  white-space:pre-wrap;word-break:break-word;overflow-x:auto;
+  box-shadow:var(--bevel-in);
+}
+.attic-sys b{color:#F5A657;font-weight:600}
+.egg-board{display:grid;gap:5px;margin:0}
+.egg-row{
+  display:flex;align-items:baseline;gap:9px;
+  font-family:var(--mono);font-size:12.5px;
+  padding:5px 8px;background:var(--face-lit);box-shadow:var(--bevel-in-1);
+}
+.egg-row .mark{flex:none;width:14px;color:var(--magenta)}
+.egg-row .nm{flex:none;min-width:104px;color:var(--title-a);letter-spacing:.05em}
+.egg-row .ds{color:var(--ink-soft);font-family:var(--body);font-size:12.5px}
+.egg-row.locked .nm,.egg-row.locked .mark{color:var(--face-dim)}
+.egg-row.locked .ds{color:var(--face-dim)}
+
+/* ---------- the joke crash ---------- */
+#panicWrap{position:fixed;inset:0;z-index:64;display:grid;place-items:center;padding:16px}
+#panicWrap[hidden]{display:none}
+#panicVeil{position:absolute;inset:0;background:rgba(11,7,24,.62)}
+.dlg.panic{width:min(440px,100%)}
+.panic-row{display:flex;gap:13px;align-items:flex-start}
+.panic-ico{width:34px;height:34px;flex:none;image-rendering:pixelated}
+.panic-row p{margin:0}
+.panic-row p + p{margin-top:8px}
+.panic-code{
+  margin:0;padding:8px 10px;background:#0B0718;color:#F2789F;
+  font-family:var(--mono);font-size:12px;box-shadow:var(--bevel-in);
+  word-break:break-all;
+}

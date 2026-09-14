@@ -1,0 +1,135 @@
+/* ---------- SIGNAL.EXE ----------
+   Built from the same parts as the Pac-Man cabinet: dark inset panel, chunky
+   .pac-btn keys, the site's own type scale. It reuses .pac-marquee, .pac-foot,
+   .pac-btn and .pac-hint outright rather than restating them, so the two
+   games stay one machine. */
+
+.sig{gap:10px}
+[data-win="dex"] > .body{display:flex}
+[data-win="dex"] > .body > .sig{flex:1 1 auto;min-height:0}
+.sig-cab{
+  background:#0B0718;padding:10px 12px 12px;display:flex;flex-direction:column;gap:9px;
+  box-shadow:var(--bevel-in);flex:1 1 auto;min-height:0;
+}
+/* the handheld screen: a dark panel with the desktop's own scanline comb */
+.sig-screen{
+  position:relative;flex:1 1 auto;min-height:0;overflow:auto;
+  background:
+    repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px),
+    linear-gradient(180deg,#141033,#0E0A22);
+  box-shadow:inset 0 0 0 1px #2B1B4E;
+  padding:13px 13px 15px;
+}
+.sig-view{display:flex;flex-direction:column;gap:9px;min-height:100%}
+.sig-view[hidden]{display:none}
+
+.sig-line{
+  margin:0;font-family:var(--ui);font-size:13px;letter-spacing:.06em;color:#F6E7C8;
+  text-shadow:0 2px 0 #0B0718;
+}
+.sig-line.sig-got{color:var(--amber);text-shadow:0 0 8px rgba(245,166,87,.5),0 2px 0 #0B0718}
+.sig-kicker{
+  margin:0;font-family:var(--ui);font-size:9.5px;letter-spacing:.22em;color:var(--magenta);
+}
+
+/* ----- the field a wild signal stands in ----- */
+.sig-field{
+  position:relative;display:grid;place-items:center;padding:10px 0 12px;
+  background:radial-gradient(80% 120% at 50% 100%,rgba(107,63,160,.42),transparent 70%);
+  border-bottom:1px solid #2B1B4E;
+}
+.sig-field.sig-empty span{font-family:var(--mono);font-size:22px;color:#3E2C6B}
+.sig-art{width:104px;height:104px;line-height:0}
+.sig-art svg{width:100%;height:100%;image-rendering:pixelated;
+  filter:drop-shadow(2px 3px 0 rgba(6,3,16,.75))}
+.sig-art.sm{width:56px;height:56px;flex:none}
+.sig-art.xs{width:30px;height:30px;flex:none}
+
+.sig-name{
+  margin:0;font-family:var(--ui);font-size:17px;letter-spacing:.1em;color:#EAF6FA;
+  display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;
+}
+.sig-name span{font-size:11px;letter-spacing:.14em;color:var(--cyan)}
+.sig-meta{
+  margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:#8B7DBA;
+}
+.sig-no{margin:0;font-family:var(--mono);font-size:11px;color:var(--amber);letter-spacing:.1em}
+
+/* ----- meters: chunky segments, not a smooth modern bar ----- */
+.sig-bar{
+  height:11px;background:#0B0718;box-shadow:inset 0 0 0 1px #2B1B4E;padding:2px;
+  position:relative;overflow:hidden;
+}
+.sig-bar i{
+  display:block;height:100%;
+  background:
+    repeating-linear-gradient(90deg,#6FD6E8 0 4px,transparent 4px 6px);
+  transition:width .32s steps(8,end);
+}
+@media (prefers-reduced-motion:reduce){ .sig-bar i{transition:none} }
+
+.sig-row{display:flex;gap:12px;align-items:center}
+.sig-id{min-width:0;display:flex;flex-direction:column;gap:2px}
+.sig-dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 12px;align-items:baseline}
+.sig-dl dt{
+  font-family:var(--ui);font-size:9.5px;letter-spacing:.18em;color:var(--magenta);
+  white-space:nowrap;
+}
+.sig-dl dd{margin:0;font-family:var(--mono);font-size:12px;color:#BFE3EE;line-height:1.5}
+.sig-dl dd.sig-move{color:var(--amber);letter-spacing:.08em}
+.sig-blurb{
+  margin:0;font-family:var(--body);font-size:12.5px;line-height:1.55;color:#9C8FCB;
+}
+
+/* ----- the index grid ----- */
+.sig-list{
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;
+}
+.sig-cell > *{
+  width:100%;display:flex;align-items:center;gap:8px;text-align:left;
+  padding:5px 7px;background:#150F31;box-shadow:inset 0 0 0 1px #2B1B4E;
+  border:0;font:inherit;color:#EAF6FA;
+}
+.sig-cell button{cursor:pointer}
+.sig-cell button:hover{background:#1D1440}
+.sig-cell button:focus-visible{outline:2px solid var(--cyan);outline-offset:-2px}
+.sig-cell b{font-family:var(--mono);font-size:10.5px;color:var(--amber);flex:none}
+.sig-cn{
+  font-family:var(--ui);font-size:11.5px;letter-spacing:.08em;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.sig-cell.locked .sig-cn{color:#4E4470}
+.sig-cell.locked .sig-art svg{filter:none;opacity:.85}
+
+/* ----- the capture, and the flicker that starts it ----- */
+.sig-cap{
+  position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;
+  border-radius:50%;background:radial-gradient(circle at 35% 32%,#FFF0B8,#F5A657 55%,#C43C75);
+  box-shadow:0 0 0 2px #0B0718,0 0 10px rgba(245,166,87,.7);
+  opacity:0;pointer-events:none;
+}
+@media (prefers-reduced-motion:no-preference){
+  .sig-in{animation:sigIn .34s steps(5,end) both}
+  .sig-cap.go{animation:sigCap .74s ease-in both}
+  .sig-art.caught{animation:sigCaught .5s steps(4,end) .16s both}
+  html.sig-flash #scan{animation:sigFlash .26s steps(2,end)}
+}
+@keyframes sigIn{from{transform:translateX(38px) scale(.7);opacity:0}to{transform:none;opacity:1}}
+@keyframes sigCap{
+  0%{opacity:1;transform:translate(-70px,26px) scale(.6)}
+  46%{opacity:1;transform:translate(0,0) scale(1)}
+  60%{transform:translate(0,0) scale(1) rotate(-14deg)}
+  74%{transform:translate(0,0) scale(1) rotate(12deg)}
+  88%{transform:translate(0,0) scale(1) rotate(-7deg)}
+  100%{opacity:1;transform:none}
+}
+@keyframes sigCaught{to{opacity:0;transform:scale(.28)}}
+@keyframes sigFlash{0%{opacity:.95}50%{opacity:.2}100%{opacity:.5}}
+
+/* ----- narrow: one column, and keys big enough to hit ----- */
+@media (max-width:899.98px){
+  .sig-list{grid-template-columns:1fr}
+  .sig-cell > *{min-height:44px}
+  .sig-art{width:88px;height:88px}
+}

@@ -1,0 +1,114 @@
+/* ---------- windows ---------- */
+.win{
+  position:fixed; z-index:5; display:none;
+  background:var(--face); padding:3px;
+  flex-direction:column; max-width:calc(100vw - 16px);
+  box-shadow:var(--bevel-out),4px 6px 0 rgba(9,5,22,.42);
+}
+.win.open{display:flex}
+.titlebar{
+  display:flex; align-items:center; gap:8px; padding:4px 4px 4px 7px;
+  background:linear-gradient(90deg,var(--title-idle-a),var(--title-idle-b));
+  color:#EDEAF3; cursor:default; user-select:none; flex:none;
+}
+.win.focused .titlebar,.dlg .titlebar{
+  background:linear-gradient(90deg,var(--title-a) 0%,var(--violet) 45%,var(--title-end) 100%);
+  color:#fff;
+}
+.titlebar .t{
+  font-family:var(--ui); font-size:15px; letter-spacing:.03em;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1;
+}
+.titlebar .dot{width:9px;height:9px;flex:none;background:var(--cyan);
+  box-shadow:0 0 0 1px rgba(0,0,0,.35)}
+.win.focused .titlebar .dot,.dlg .titlebar .dot{background:var(--amber)}
+.tbtn{
+  width:22px;height:20px;flex:none;background:var(--face);border:0;cursor:pointer;
+  position:relative;z-index:4;font-size:0;padding:0;
+  box-shadow:var(--bevel-out);
+}
+.tbtn::before,.tbtn::after{content:"";position:absolute;background:var(--ink)}
+.tbtn[data-act="min"]::before{left:5px;bottom:5px;width:10px;height:2px}
+.tbtn[data-act="close"]::before,.tbtn[data-act="close"]::after{
+  left:5px;top:9px;width:11px;height:2px;
+}
+.tbtn[data-act="close"]::before{transform:rotate(45deg)}
+.tbtn[data-act="close"]::after{transform:rotate(-45deg)}
+.tbtn[data-act="max"]::before{
+  left:4px;top:4px;width:14px;height:12px;background:transparent;
+  border:1px solid var(--ink);border-top-width:3px;
+}
+.tbtn[data-act="max"]::after{content:none}
+.tbtn[data-act="max"][data-state="restore"]::before{left:3px;top:7px;width:11px;height:9px}
+.tbtn[data-act="max"][data-state="restore"]::after{
+  content:"";left:8px;top:3px;width:11px;height:9px;background:transparent;
+  border:1px solid var(--ink);border-top-width:3px;
+}
+
+/* resize handles */
+.rz{position:absolute;z-index:2}
+.rz.n{top:-3px;left:10px;right:10px;height:6px;cursor:ns-resize}
+.rz.s{bottom:-3px;left:10px;right:10px;height:6px;cursor:ns-resize}
+.rz.w{left:-3px;top:10px;bottom:10px;width:6px;cursor:ew-resize}
+.rz.e{right:-3px;top:10px;bottom:10px;width:6px;cursor:ew-resize}
+.rz.nw{left:-3px;top:-3px;width:11px;height:11px;cursor:nwse-resize}
+.rz.ne{right:-3px;top:-3px;width:11px;height:11px;cursor:nesw-resize}
+.rz.sw{left:-3px;bottom:-3px;width:11px;height:11px;cursor:nesw-resize}
+.rz.se{right:-3px;bottom:-3px;width:16px;height:16px;cursor:nwse-resize}
+
+.win.maxed{
+  inset:0 0 var(--taskbar) 0 !important;
+  width:auto !important;height:auto !important;max-width:none;
+}
+.win.maxed .rz{display:none}
+.win.maxed .titlebar{cursor:default}
+body.flow .rz{display:none}
+body.flow .win.maxed{inset:auto !important}
+.tbtn:active{box-shadow:var(--bevel-groove)}
+.tbtn:focus-visible{outline:2px solid var(--title-a);outline-offset:-4px}
+
+.body{
+  background:var(--paper); margin:3px 0 0; padding:20px 22px 24px;
+  overflow:auto; flex:1; min-height:0;
+  box-shadow:var(--bevel-in);
+}
+.status{
+  position:relative; flex:none; margin-top:3px; padding:3px 20px 3px 8px; font-family:var(--mono);
+  font-size:11px; color:var(--ink-soft); display:flex; justify-content:space-between;
+  gap:12px; background:var(--face);
+  box-shadow:var(--bevel-in-1);
+}
+.status::after{
+  content:"";position:absolute;right:3px;bottom:3px;width:12px;height:12px;
+  pointer-events:none;
+  background:repeating-linear-gradient(135deg,
+    transparent 0 2px, var(--face-dim) 2px 3px, #fff 3px 4px, transparent 4px 6px);
+}
+body.flow .status::after{display:none}
+
+
+/* CRT power-off: the picture collapses to a scanline, then to a dot.
+   Applied on close only — minimising is going away, not switching off. */
+.win.crt-off{
+  pointer-events:none;
+  transform-origin:center center;
+  animation:crtOff .26s cubic-bezier(.5,0,.75,0) forwards;
+}
+.win.crt-off .body,.win.crt-off .titlebar,.win.crt-off .status{
+  animation:crtWash .26s linear forwards;
+}
+@keyframes crtOff{
+  0%  {transform:scale(1,1);   opacity:1}
+  55% {transform:scale(1,.012);opacity:1}
+  70% {transform:scale(1,.012);opacity:1}
+  100%{transform:scale(.002,.012);opacity:0}
+}
+/* the phosphor flares white as the beam collapses */
+@keyframes crtWash{
+  0%  {filter:none}
+  50% {filter:brightness(2.4) saturate(.2)}
+  100%{filter:brightness(6) saturate(0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .win.crt-off,.win.crt-off .body,.win.crt-off .titlebar,.win.crt-off .status{animation:none}
+}

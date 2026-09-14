@@ -1,41 +1,80 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ---------------------------------------------------------------------------
+# HY-OS — what does not belong on GitHub
+#
+# The repo's job is the source: src/, build.py, deploy.sh and the small static
+# assets the page references. Everything build.py produces, and everything that
+# is not mine to publish, stays out.
+# ---------------------------------------------------------------------------
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
+# --- music -----------------------------------------------------------------
+# These are commercially released recordings, not my work. A public repo is a
+# worse place for them than a bucket: it is indexed, it is permanent in the
+# history, and a DMCA notice takes down the whole repository, not just a file.
+# src/tracks.json still lists them, so a fresh clone builds a page whose player
+# reports three missing files and falls back to the synthesiser — which is the
+# correct behaviour for anyone but me.
+music/
+*.mp3
+*.m4a
+*.wav
+*.flac
+*.ogg
 
-# testing
-/coverage
+# --- build output ----------------------------------------------------------
+# `python3 build.py` regenerates both of these from src/ every time, so they
+# would only ever show up as 275 KB of noise in a diff. resume.jpg is extracted
+# from src/body/12-resume-image.b64, which IS committed.
+# Publishing with GitHub Pages instead of S3? Delete the index.html line — Pages
+# needs the built file in the repo.
+index.html
+resume.jpg
 
-# next.js
-/.next/
-/out/
+# --- local leftovers -------------------------------------------------------
+*.bak
+shot-*.png
+*.orig
+*.rej
 
-# production
-/build
-
-# misc
+# --- macOS -----------------------------------------------------------------
 .DS_Store
-*.pem
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon?
 
-# debug
+# --- editors / tooling -----------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.claude/
+
+# --- python ----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# --- node (only if a tool ever needs it; the site itself uses none) ---------
+node_modules/
 npm-debug.log*
-yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# --- credentials and machine-local config ----------------------------------
+# deploy.sh reads AWS credentials from `aws configure` (~/.aws), which is
+# outside this folder — nothing secret should ever land here, but if a habit
+# ever puts one here, it does not get committed.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/

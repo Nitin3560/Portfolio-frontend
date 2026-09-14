@@ -1,0 +1,28 @@
+<nav id="taskbar">
+  <button id="start" aria-label="Start menu" aria-haspopup="true" aria-expanded="false" aria-controls="startmenu">
+    <svg class="glyph" viewBox="0 0 16 16" aria-hidden="true">
+      <rect x="1" y="1" width="6" height="6" fill="#E85A9B"/><rect x="9" y="1" width="6" height="6" fill="#F5A657"/>
+      <rect x="1" y="9" width="6" height="6" fill="#6FD6E8"/><rect x="9" y="9" width="6" height="6" fill="#6B3FA0"/>
+    </svg>
+    <span class="start-lbl">Start</span>
+  </button>
+  <div id="tasks"></div>
+  <a id="resumeBtn" href="HY_resume.pdf" data-resume aria-label="Download résumé PDF">&#8681;<span class="lbl-long">R&eacute;sum&eacute;</span><span class="lbl-short">PDF</span></a>
+  <button id="armHint" type="button" hidden aria-label="Enable sound">&#9834;<span class="lbl-long">Enable sound</span><span class="lbl-short">Sound</span></button>
+  <div id="tray"><button id="qqBadge" type="button" aria-label="1 unread message: Recruiter View"><svg viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges"><rect x="1" y="2" width="14" height="9" fill="#6B3FA0"/><rect x="2" y="3" width="12" height="7" fill="#EFEAF9"/><rect x="3" y="11" width="4" height="2" fill="#6B3FA0"/><rect x="4" y="5" width="8" height="1" fill="#6B3FA0"/><rect x="4" y="7" width="5" height="1" fill="#E85A9B"/></svg><span class="n">1</span></button><span id="np" hidden></span><button id="volBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="volPop" aria-label="Volume"></button><i class="lamp" aria-hidden="true"></i><span id="clock">--:--</span></div>
+</nav>
+
+<div id="volPop" hidden>
+  <div class="vp-row"><span>Volume</span><b id="volPct">35%</b></div>
+  <input type="range" id="trayVol" min="0" max="100" value="35" aria-label="Volume">
+  <p id="volNote" hidden>iOS sets the level with the side buttons.</p>
+  <button type="button" id="muteBtn" aria-pressed="false">Mute</button>
+</div>
+
+<div id="startmenu" role="menu" aria-label="Start menu">
+  <div class="spine" aria-hidden="true"><span>HY&nbsp;OS</span></div>
+  <ul id="startlist"></ul>
+</div>
+
+<div id="boot" aria-hidden="true"></div>
+

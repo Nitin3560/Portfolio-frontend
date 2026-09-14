@@ -1,0 +1,69 @@
+/* ---------- taskbar ---------- */
+#taskbar{
+  position:fixed;left:0;right:0;bottom:0;height:var(--taskbar);z-index:40;
+  background:var(--face);display:flex;align-items:center;gap:6px;padding:0 6px;
+  box-shadow:inset 0 1px 0 var(--face-lit),inset 0 2px 0 #fff,0 -2px 0 rgba(9,5,22,.35);
+}
+#start{
+  flex:none;height:40px;padding:0 14px 0 11px;border:0;background:var(--face);
+  cursor:pointer;display:flex;align-items:center;gap:8px;
+  font-family:var(--ui);font-size:16px;color:var(--ink);
+  box-shadow:var(--bevel-out);
+}
+#start[aria-expanded="true"]{box-shadow:var(--bevel-in)}
+#start .glyph{width:18px;height:18px;flex:none}
+#tasks{flex:1;display:flex;gap:5px;overflow:hidden;align-items:center}
+.task{
+  height:40px;min-width:0;flex:0 1 190px;padding:0 11px;border:0;background:var(--face);
+  cursor:pointer;font-family:var(--ui);font-size:14px;color:var(--ink);
+  text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  box-shadow:var(--bevel-out);
+}
+.task[aria-pressed="true"]{
+  box-shadow:var(--bevel-in);
+  background:
+    repeating-linear-gradient(45deg,rgba(107,63,160,.10) 0 2px,transparent 2px 4px),
+    var(--face);
+}
+#tray{
+  flex:none;display:flex;align-items:center;gap:10px;height:40px;padding:0 12px;
+  font-family:var(--mono);font-size:13px;color:var(--ink);
+  font-variant-numeric:tabular-nums;
+  box-shadow:var(--bevel-in-1);
+}
+#tray .lamp{width:8px;height:8px;background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
+@media (max-width:559.98px){
+  /* The tray now always carries the message badge, so it has to give width
+     back somewhere: tighter gutters, and the decorative lamp goes. */
+  #tray{gap:7px;padding:0 8px}
+  #tray .lamp{display:none}
+}
+
+#startmenu{
+  position:fixed;left:6px;bottom:var(--taskbar);z-index:45;width:268px;display:none;
+  background:var(--face);padding:3px;
+  box-shadow:var(--bevel-out),4px -4px 0 rgba(9,5,22,.42);
+}
+#startmenu.open{display:flex}
+#startmenu .spine{
+  width:30px;flex:none;
+  background:linear-gradient(180deg,var(--title-b),var(--violet) 55%,var(--title-a));
+  display:grid;place-items:center;
+}
+#startmenu .spine span{
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font-family:var(--ui);font-size:15px;color:#fff;letter-spacing:.22em;
+  padding:10px 0;
+}
+#startmenu a{text-decoration:none}
+#startmenu ul{list-style:none;margin:0;padding:4px;flex:1;display:flex;flex-direction:column}
+#startmenu button,#startmenu a{
+  width:100%;border:0;background:transparent;cursor:pointer;text-align:left;
+  padding:8px 10px;font-family:var(--ui);font-size:15px;color:var(--ink);
+  display:flex;align-items:center;gap:10px;
+}
+#startmenu button svg,#startmenu a svg{width:20px;height:20px;flex:none}
+#startmenu button:hover,#startmenu button:focus-visible,
+#startmenu a:hover,#startmenu a:focus-visible{background:var(--title-a);color:#fff;outline:none}
+#startmenu li.sep{height:1px;background:var(--face-dim);margin:4px 6px;box-shadow:0 1px 0 #fff}
+
