@@ -57,11 +57,16 @@
       "dl systems  CUDA, cuDNN, TorchScript, GPU profiling, inference optimization"
     ],
     "education.txt": [
-      "University of Texas at Arlington             Expected Dec 2026",
+      "University of Texas at Arlington     Jan 2025 – Dec 2026 (expected)",
       "  M.S. Computer Science · Arlington, Texas",
+      "  Artificial Intelligence, Machine Learning, Cloud Computing,",
+      "  Neural Networks, Software Testing, BATs",
       "",
       "Acropolis Institute of Technology & Research       2019 – 2023",
-      "  B.Tech. Computer Science · India"
+      "  B.Tech. Computer Science · India",
+      "  Data Structures & Algorithms, Object-Oriented Programming,",
+      "  Operating Systems, Database Management Systems, Computer Networks,",
+      "  Software Engineering, Discrete Mathematics, Computer Organization & Architecture"
     ],
     "experience.txt": [
       "Interview Bot — SDE Intern · Seattle, WA     Sep 2023 – Dec 2023",
