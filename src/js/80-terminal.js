@@ -36,19 +36,16 @@
 
   var FILES = {
     "readme.txt": [
-      "Hao Yang — Brooklyn, NY",
+      "Nitin Singh Rathore — Arlington, Texas",
       "",
-      "M.S. Computer Engineering at NYU, finishing May 2026. Most of what I",
-      "build lives on the server side: retrieval pipelines, event-driven AWS",
-      "backends, containerized services and the CI that keeps them honest.",
+      "Backend engineering, distributed systems, and practical AI.",
       "",
-      "The thread across my projects is making an AI feature feel immediate",
-      "rather than impressive on paper — streaming tokens instead of waiting",
-      "on a full response, summarizing history so context survives past ten",
-      "turns, indexing photos the moment they land in a bucket.",
+      "I’m pursuing an M.S. in Computer Science at the University of Texas at Arlington, with graduation expected in December 2026. My work spans backend engineering, distributed systems, and applied AI. At WERBOOZ, I built and maintained production services, optimized database queries, and integrated APIs across enterprise applications.",
       "",
-      "Actively seeking intern and full-time SWE roles starting May 2026."
-    ],
+      "My projects turn that experience into practical tools: YoMeets combines real-time AI meeting assistance with workflow automation, CareerOS focuses on search and ranking, and CloudQueue processes web-scraping jobs through distributed workers. I also work as a Graduate Teaching Assistant at UT Arlington and research reliable coordination for autonomous UAV networks.",
+      "",
+      "Open to software engineering internships and full-time opportunities."
+],
     "skills.txt": [
       "languages   C/C++, Python, Java, Go, SQL, JavaScript, HTML/CSS, C#, ARM asm, YAML",
       "web/devops  AWS, GCP, Docker, Kubernetes, REST, Redis, Git, PostgreSQL, MySQL, JWT",
