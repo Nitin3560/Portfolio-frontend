@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# HY-OS — what does not belong on GitHub
+# NSR-OS — what does not belong on GitHub
 #
 # The repo's job is the source: src/, build.py, deploy.sh and the small static
 # assets the page references. Everything build.py produces, and everything that
@@ -7,18 +7,19 @@
 # ---------------------------------------------------------------------------
 
 # --- music -----------------------------------------------------------------
-# These are commercially released recordings, not my work. A public repo is a
-# worse place for them than a bucket: it is indexed, it is permanent in the
-# history, and a DMCA notice takes down the whole repository, not just a file.
-# src/tracks.json still lists them, so a fresh clone builds a page whose player
-# reports three missing files and falls back to the synthesiser — which is the
-# correct behaviour for anyone but me.
-music/
+# Commercial recordings do not belong in this public repository. The generated
+# NSR WAV files below are original site assets and are explicitly kept so the
+# player works on Vercel.
+music/*
 *.mp3
 *.m4a
 *.wav
 *.flac
 *.ogg
+!music/
+!music/nsr-night-drive.wav
+!music/nsr-harbor-lights.wav
+!music/nsr-neon-rain.wav
 
 # --- build output ----------------------------------------------------------
 # `python3 build.py` regenerates both of these from src/ every time, so they
