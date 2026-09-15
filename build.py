@@ -17,7 +17,7 @@ Usage:
 import base64, io, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SITE = os.environ.get("SITE_URL", "https://nitinsinghrathore.us").rstrip("/")
+SITE = os.environ.get("SITE_URL", "https://www.nitinsinghrathore.us").rstrip("/")
 TITLE = "Nitin Singh Rathore — Software Engineer"
 DESC = ("Software engineer in Arlington, Texas. M.S. Computer Science at UT Arlington, Dec 2026. "
         "Backend systems, AWS, and applied AI — presented as a retro desktop.")
@@ -68,8 +68,8 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:site_name" content="Nitin Singh Rathore Portfolio">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="{site}/og-image-nsr.png">
-<meta property="og:image:secure_url" content="{site}/og-image-nsr.png">
+<meta property="og:image" content="{site}/og-image-nsr-v2.png">
+<meta property="og:image:secure_url" content="{site}/og-image-nsr-v2.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -77,7 +77,7 @@ HEAD = """<!DOCTYPE html>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
-<meta name="twitter:image" content="{site}/og-image-nsr.png">
+<meta name="twitter:image" content="{site}/og-image-nsr-v2.png">
 
 <script type="application/ld+json">
 {person}
