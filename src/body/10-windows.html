@@ -63,53 +63,51 @@
 
         <article class="entry">
           <div class="head">
-            <h3>AIFriends &mdash; AI Companion Platform</h3>
-            <span class="when">Jan 2026 &ndash; present</span>
+            <h3>YoMeets &mdash; AI Meeting Assistant</h3>
+            <span class="when">Jun 2026 &ndash; Jul 2026</span>
           </div>
-          <p class="lede">An AI chat companion that answers token-by-token as it thinks, and remembers a conversation past the point where most chatbots forget it.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">Vue 3</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">LanceDB</span></div>
+          <p class="lede">A real-time AI meeting and workflow assistant that turns live conversation into searchable notes and follow-up actions.</p>
+          <div class="tags"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">Deepgram</span><span class="tag">LLMs</span></div>
           <ul class="bul">
-            <li>Architected a full-stack AI companion platform with a <strong>Django REST Framework</strong> backend and a <strong>Vue 3</strong> SPA frontend, using <strong>JWT</strong> tokens (<b class="num">2h access / 7d refresh</b>, rotated and blacklisted) with silent refresh across REST and Server-Sent Events.</li>
-            <li>Designed an agentic <strong>RAG</strong> system in <strong>LangGraph</strong> that invokes a <strong>LanceDB</strong> vector-search tool through a self-authored LangChain adapter for a custom OpenAI-compatible LLM.</li>
-            <li>Implemented hierarchical memory: the last <b class="num">10 exchanges</b> are periodically summarized into long-term memory.</li>
-            <li>Replaced the blocking, wait-for-full-response chat flow with token-by-token <strong>SSE</strong> streaming, surfacing the first token immediately instead of after full generation.</li>
+            <li>Built meeting transcription, summary, and retrieval flows with <strong>Deepgram</strong>, LLM APIs, and <strong>pgvector</strong>.</li>
+            <li>Reached about <b class="num">94%</b> NLP/RAG precision with p95 response latency under <b class="num">3s</b>.</li>
+            <li>Connected GitHub and Google APIs for workflow automation with about <b class="num">98%</b> successful task creation and no duplicate actions.</li>
           </ul>
-          <a class="src" data-ico="repo" href="https://github.com/Phase1es2/LLM-App" target="_blank" rel="noopener noreferrer">Phase1es2/LLM-App <span class="arw" aria-hidden="true">&#8599;</span><span class="sr">(opens on GitHub)</span></a>
+          <a class="src" data-ico="repo" href="https://github.com/Nitin3560" target="_blank" rel="noopener noreferrer">github.com/Nitin3560 <span class="arw" aria-hidden="true">&#8599;</span><span class="sr">(opens on GitHub)</span></a>
         </article>
 
         <hr class="rule">
 
         <article class="entry">
           <div class="head">
-            <h3>Smart Photo Album &mdash; AI Natural Language Search</h3>
-            <span class="when">Oct 2025 &ndash; Dec 2025</span>
+            <h3>CareerOS &mdash; Search and Ranking Platform</h3>
+            <span class="when">Jul 2026 &ndash; present</span>
           </div>
-          <p class="lede">A photo library you search in plain English &mdash; &ldquo;dogs at the beach&rdquo; &mdash; with every upload labelled automatically the moment it lands.</p>
-          <div class="tags"><span class="tag">AWS</span><span class="tag">S3</span><span class="tag">Amazon Lex</span><span class="tag">OpenSearch</span><span class="tag">Rekognition</span><span class="tag">CloudFormation</span></div>
+          <p class="lede">A full-stack career search system built around fast document indexing, ranking, and background processing.</p>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">RQ</span><span class="tag">Docker</span></div>
           <ul class="bul">
-            <li>Engineered a serverless photo app on <strong>AWS Lambda</strong>, <strong>API Gateway</strong> and <strong>S3</strong>: uploads go through presigned PUT URLs and are auto-indexed by an S3-triggered Lambda; <strong>Amazon Lex</strong> resolves search queries into keywords matched against <strong>OpenSearch</strong>.</li>
-            <li>Built a pipeline merging <strong>Amazon Rekognition</strong> auto-labels (<b class="num">top 15 labels, &ge;70% confidence</b>) with custom S3-metadata labels, deduplicated and indexed into OpenSearch.</li>
-            <li>Defined the full stack &mdash; API Gateway, S3-to-Lambda triggers, least-privilege IAM, <b class="num">3 Lambdas</b> &mdash; as <strong>CloudFormation</strong> IaC via AWS CodeBuild.</li>
+            <li>Indexed more than <b class="num">31,200</b> documents for search and ranking workflows.</li>
+            <li>Improved median lookup time from about <b class="num">690ms</b> to <b class="num">3.5ms</b> at a <b class="num">32k</b> record scale.</li>
+            <li>Used Redis/RQ workers and Dockerized services to keep ingestion, ranking, and API work reliable.</li>
           </ul>
-          <a class="src" data-ico="repo" href="https://github.com/Phase1es2/Photo-Album" target="_blank" rel="noopener noreferrer">Phase1es2/Photo-Album <span class="arw" aria-hidden="true">&#8599;</span><span class="sr">(opens on GitHub)</span></a>
+          <a class="src" data-ico="repo" href="https://github.com/Nitin3560" target="_blank" rel="noopener noreferrer">github.com/Nitin3560 <span class="arw" aria-hidden="true">&#8599;</span><span class="sr">(opens on GitHub)</span></a>
         </article>
 
         <hr class="rule">
 
         <article class="entry">
           <div class="head">
-            <h3>Dining Concierge Chatbot</h3>
-            <span class="when">Sep 2025 &ndash; Oct 2025</span>
+            <h3>CloudQueue &mdash; Distributed Scraping Queue</h3>
+            <span class="when">Mar 2026 &ndash; Jun 2026</span>
           </div>
-          <p class="lede">A restaurant-booking chatbot that holds a multi-turn conversation, then emails you the picks.</p>
-          <div class="tags"><span class="tag">Amazon Lex</span><span class="tag">DynamoDB</span><span class="tag">SQS</span><span class="tag">OpenSearch</span><span class="tag">SES</span><span class="tag">Yelp API</span></div>
+          <p class="lede">A distributed web-scraping queue for high-throughput, idempotent task execution across cloud workers.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Redis</span><span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Terraform</span></div>
           <ul class="bul">
-            <li>Built a serverless dining chatbot where <strong>Amazon Lex</strong> handles multi-turn slot filling (location, cuisine, date/time, party size, email) and a Lambda hook enforces booking rules before queuing to <strong>SQS</strong>.</li>
-            <li>Designed the REST API on API Gateway and AWS Lambda as a Lex proxy, pinning session IDs to fix a slot-reset bug.</li>
-            <li>Scraped and stored <b class="num">1,600+</b> Manhattan restaurants across <b class="num">8 cuisines</b> via the Yelp API into <strong>DynamoDB</strong> (full records) and OpenSearch (id + cuisine index).</li>
-            <li>Automated recommendation delivery with a scheduled Lambda that queries up to <b class="num">100 OpenSearch matches</b>, randomly samples <b class="num">5</b>, joins DynamoDB details and emails picks via <strong>Amazon SES</strong>.</li>
+            <li>Processed about <b class="num">1.4k</b> tasks per second with Redis-backed queues and containerized workers.</li>
+            <li>Added idempotency and recovery paths that restored workers in under <b class="num">10s</b> with zero duplicate task execution.</li>
+            <li>Provisioned repeatable AWS infrastructure with Docker, Kubernetes, and Terraform.</li>
           </ul>
-          <a class="src" data-ico="repo" href="https://github.com/Phase1es2/Cloud-Chatbot" target="_blank" rel="noopener noreferrer">Phase1es2/Cloud-Chatbot <span class="arw" aria-hidden="true">&#8599;</span><span class="sr">(opens on GitHub)</span></a>
+          <a class="src" data-ico="repo" href="https://github.com/Nitin3560" target="_blank" rel="noopener noreferrer">github.com/Nitin3560 <span class="arw" aria-hidden="true">&#8599;</span><span class="sr">(opens on GitHub)</span></a>
         </article>
       </div>
     </div>
@@ -280,15 +278,15 @@
 
     <h2>Projects</h2>
     <ul>
-      <li><strong>AIFriends</strong> &mdash; agentic RAG companion platform. Django REST + Vue 3, JWT
-      auth, LangGraph invoking a LanceDB vector-search tool, token-by-token SSE streaming.
-      <a href="https://github.com/Phase1es2/LLM-App">github.com/Phase1es2/LLM-App</a></li>
-      <li><strong>Smart Photo Album</strong> &mdash; serverless natural-language photo search on AWS
-      Lambda, API Gateway, S3, Amazon Lex, Rekognition and OpenSearch, defined as CloudFormation IaC.
-      <a href="https://github.com/Phase1es2/Photo-Album">github.com/Phase1es2/Photo-Album</a></li>
-      <li><strong>Dining Concierge Chatbot</strong> &mdash; multi-turn Lex booking bot over 1,600+
-      Manhattan restaurants in DynamoDB and OpenSearch, with SQS queueing and SES email delivery.
-      <a href="https://github.com/Phase1es2/Cloud-Chatbot">github.com/Phase1es2/Cloud-Chatbot</a></li>
+      <li><strong>YoMeets</strong> &mdash; real-time AI meeting and workflow assistant using TypeScript,
+      Node.js, PostgreSQL/pgvector, Deepgram, LLM APIs, and GitHub/Google API automation.
+      <a href="https://github.com/Nitin3560">github.com/Nitin3560</a></li>
+      <li><strong>CareerOS</strong> &mdash; full-stack search and ranking platform built with FastAPI,
+      Next.js, PostgreSQL, Redis/RQ, and Docker, indexing 31,200+ documents.
+      <a href="https://github.com/Nitin3560">github.com/Nitin3560</a></li>
+      <li><strong>CloudQueue</strong> &mdash; distributed scraping queue in Python, Redis, AWS, Docker,
+      Kubernetes, and Terraform, processing about 1.4k tasks/sec with duplicate-safe recovery.
+      <a href="https://github.com/Nitin3560">github.com/Nitin3560</a></li>
     </ul>
 
     <h2>Skills</h2>

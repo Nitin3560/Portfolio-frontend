@@ -1,7 +1,3 @@
-RS.up
-         : d === DIRS.left ? DIRS.right : DIRS.left;
-  }
-
   var canvas = opts.canvas, ctx = canvas.getContext("2d", {alpha:false});
   var hud = opts.hud;
   var reduced = !!opts.reduced;
@@ -635,4 +631,3 @@ RS.up
     halt();
     document.removeEventListener("keydown", onKey, false);
   };
-

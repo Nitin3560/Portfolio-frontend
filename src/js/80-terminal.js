@@ -82,12 +82,12 @@
   };
 
   var PROJECTS = [
-    ["AIFriends", "Django · Vue 3 · LangGraph · LanceDB", "LLM-App",
-     "Agentic RAG companion platform with JWT auth and token-by-token SSE streaming."],
-    ["Smart Photo Album", "AWS Lambda · Lex · OpenSearch · Rekognition", "Photo-Album",
-     "Serverless photo search: natural-language queries over auto-labelled images."],
-    ["Dining Concierge", "Lex · DynamoDB · SQS · SES", "Cloud-Chatbot",
-     "Multi-turn booking bot over 1,600+ Manhattan restaurants, emailed picks."]
+    ["YoMeets", "TypeScript · Node.js · PostgreSQL/pgvector · Deepgram", "Nitin3560",
+     "Real-time AI meeting assistant with RAG precision near 94% and p95 latency under 3s."],
+    ["CareerOS", "FastAPI · Next.js · PostgreSQL · Redis/RQ · Docker", "Nitin3560",
+     "Search and ranking platform indexing 31,200+ docs with median lookup cut from 690ms to 3.5ms."],
+    ["CloudQueue", "Python · Redis · AWS · Docker · Kubernetes · Terraform", "Nitin3560",
+     "Distributed scraping queue processing about 1.4k tasks/sec with duplicate-safe recovery."]
   ];
 
   var WINKEYS = {
@@ -153,8 +153,8 @@
       say((i ? "" : "") + "<b>" + esc(p[0]) + "</b>");
       say('<span class="dim">' + esc(p[1]) + "</span>");
       say(esc(p[3]));
-      say('  → <a href="https://github.com/Phase1es2/' + p[2] +
-          '" target="_blank" rel="noopener noreferrer">github.com/Phase1es2/' + p[2] + "</a>");
+      say('  → <a href="https://github.com/' + p[2] +
+          '" target="_blank" rel="noopener noreferrer">github.com/' + p[2] + "</a>");
       if(i < PROJECTS.length - 1) say("");
     });
   };
@@ -576,4 +576,6 @@ function PacmanApp(opts){
   var PREF = [DIRS.up, DIRS.left, DIRS.down, DIRS.right];
   function opposite(d){
     if(!d) return null;
-    return d === DIRS.up ? DIRS.down : d === DIRS.down ? DI
+    return d === DIRS.up ? DIRS.down : d === DIRS.down ? DIRS.up
+         : d === DIRS.left ? DIRS.right : DIRS.left;
+  }
