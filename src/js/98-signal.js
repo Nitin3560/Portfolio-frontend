@@ -11,7 +11,7 @@
      one stands for a real part of the work described elsewhere on this
      desktop; none of them claim anything that is not already on the r'sum'. */
 
-  var SIG_KEY = "hyos_signals";
+  var SIG_KEY = "nsros_signals";
 
   /* "." is transparent; "1".."6" index the creature's own six-colour ramp. */
   var SIGNALS = [

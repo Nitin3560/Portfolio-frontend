@@ -26,7 +26,7 @@
   var EGG_BY_ID = {};
   EGGS.forEach(function(e){ EGG_BY_ID[e[0]] = {name:e[1], hint:e[2]}; });
 
-  var KEY = "hyos_eggs";
+  var KEY = "nsros_eggs";
   var eggsFound = {};
   (function loadEggs(){
     try{
