@@ -87,7 +87,9 @@
     ["CareerOS", "FastAPI · Next.js · PostgreSQL · Redis/RQ · Docker", "Nitin3560/careeros",
      "Search and ranking platform indexing 31,200+ docs with median lookup cut from 690ms to 3.5ms."],
     ["CloudQueue", "Python · Redis · AWS · Docker · Kubernetes · Terraform", "",
-     "Distributed scraping queue processing about 1.4k tasks/sec with duplicate-safe recovery."]
+     "Distributed scraping queue processing about 1.4k tasks/sec with duplicate-safe recovery."],
+    ["TwinGuard", "ROS 2 · PX4 SITL · Gazebo · C++17 · BehaviorTree.CPP · Nav2", "Nitin3560/TwinGuard",
+     "Trust-aware UAV autonomy framework with localization integrity estimation and offboard supervision."]
   ];
 
   var WINKEYS = {
