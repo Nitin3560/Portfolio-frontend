@@ -29,6 +29,7 @@ music/*
 # needs the built file in the repo.
 index.html
 resume.jpg
+public/
 
 # --- local leftovers -------------------------------------------------------
 *.bak
