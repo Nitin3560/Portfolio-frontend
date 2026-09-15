@@ -92,10 +92,14 @@
       "  · Connects TwinGuard-style trust estimation with multi-agent UAV behavior."
     ],
     "thesis.txt": [
-      "M.S. Thesis | In Progress     Jan 2025 – Dec 2026",
-      "  · Focus: reliable autonomous UAV systems.",
-      "  · Emphasis: coordination, fault tolerance, and simulation-backed validation.",
-      "  · Goal: robust autonomy when localization, communication, or agent state is uncertain."
+      "Cross-Layer Supervisory Control for Low-Altitude UAV Swarm Networks",
+      "  · M.S. Computer Science thesis · UT Arlington · Fall 2026.",
+      "  · Advisors: Dr. Md Salik Parwez, Dr. Debashri Roy, Dr. Nadra Guizani.",
+      "  · Adds a lightweight supervisory layer to PID control for UAV swarms.",
+      "  · Monitors dynamics, observation, and networking behavior to identify likely faults.",
+      "  · Adapts reference motion, formation geometry, and coordination parameters under bounded changes.",
+      "  · Evaluated with multi-UAV simulation, controlled fault injection, and multi-seed experiments.",
+      "  · Link: https://mavmatrix.uta.edu/cse_theses2/7/"
     ],
     "contact.txt": [
       "email     nxr3560@mavs.uta.edu",
