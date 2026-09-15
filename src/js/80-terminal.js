@@ -66,12 +66,15 @@
       "  Software Engineering, Discrete Mathematics, Computer Organization & Architecture"
     ],
     "experience.txt": [
-      "Interview Bot — SDE Intern · Seattle, WA     Sep 2023 – Dec 2023",
-      "  · Migrated backend services and PostgreSQL from AWS EC2 to GKE,",
-      "    cutting deployment time by 60%.",
-      "  · Built CI/CD pipelines with GitHub Actions across 3 microservices.",
-      "  · Kubernetes deployments, ReplicaSets, HPA, load balancing, IAM,",
-      "    VPC, Helm charts and rollout strategies."
+      "WERBOOZ Pvt. Ltd | Software Engineer · Indore, India     Sep 2023 – Oct 2024",
+      "  · Built and maintained production backend services for enterprise apps.",
+      "  · Optimized database queries and service logic to reduce avoidable latency.",
+      "  · Integrated third-party and internal APIs across business workflows.",
+      "",
+      "University of Texas at Arlington | Graduate Teaching Assistant · Arlington, TX     Jan 2025 – present",
+      "  · Support CS coursework through labs, mentoring, grading, and technical explanations.",
+      "  · Help students with programming, debugging, data structures, and systems fundamentals.",
+      "  · Continue research work on reliable coordination for autonomous UAV networks."
     ],
     "contact.txt": [
       "email     nxr3560@mavs.uta.edu",
