@@ -1,11 +1,11 @@
   /* ---------- boot ---------- */
   var boot = document.getElementById("boot");
   var LINES = [
-    '<span class="hi">HY-OS</span>  v1.0  &mdash;  personal system',
-    'Brooklyn, NY  &middot;  build 2026.05',
+    '<span class="hi">NSR-OS</span>  v1.0  &mdash;  personal system',
+    'Arlington, TX  &middot;  build 2026.12',
     '',
     'Checking memory ................ 640K OK',
-    'Mounting /education ............ NYU, UW',
+    'Mounting /education ............ UT Arlington, Acropolis',
     'Mounting /experience ........... 1 role',
     'Loading /projects .............. 3 items',
     'Starting network ............... <span class="mg">nxr3560@mavs.uta.edu</span>',
@@ -24,7 +24,7 @@
 
   var AT_LINES = [
     "ＨＹ－ＯＳ　１．０",
-    "M.S. COMPUTER ENGINEERING · NYU · MAY 2026",
+    "M.S. COMPUTER SCIENCE · UT ARLINGTON · DEC 2026",
     "BACKEND · AWS · KUBERNETES · APPLIED AI",
     "ＡＩＦＲＩＥＮＤＳ　—　AGENTIC RAG, TOKEN-BY-TOKEN STREAMING",
     "ＳＭＡＲＴ　ＰＨＯＴＯ　ＡＬＢＵＭ　—　SERVERLESS IMAGE SEARCH",

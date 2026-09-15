@@ -2,7 +2,7 @@
   var tOut = document.getElementById("tOut");
   var tIn  = document.getElementById("tIn");
   var tHist = [], tHistAt = -1, loadedAt = Date.now();
-  var PS1 = "hao@hy-os:~$";      /* one string; 97-eggs.js rewrites it */
+  var PS1 = "nitin@nsr-os:~$";      /* one string; 97-eggs.js rewrites it */
 
   function esc(s){
     return String(s).replace(/[&<>"]/g, function(c){
@@ -143,7 +143,7 @@
   CMD.whoami = function(){
     say("Nitin Singh Rathore — software engineer, Arlington TX.");
     say("M.S. Computer Science @ UT Arlington, Dec 2026. Backend, distributed systems, applied AI.");
-    say('Seeking intern and full-time SWE roles starting May 2026.', "dim");
+    say('Seeking software engineering internships and full-time roles.', "dim");
   };
 
   CMD.ls = function(){
@@ -218,10 +218,10 @@
     var info = [
       ["", "<b>nitin@portfolio</b>"],
       ["", '<span class="dim">─────────</span>'],
-      ["OS",      "HY-OS 1.0 (runs in your browser)"],
+      ["OS",      "NSR-OS 1.0 (runs in your browser)"],
       ["Host",    "Arlington, Texas"],
       ["Kernel",  "vanilla JS — no framework, one file"],
-      ["Shell",   "hysh 1.0"],
+      ["Shell",   "nsrsh 1.0"],
       ["Uptime",  uptime()],
       ["Audio",   "Web Audio" + (fileMode ? " + audio files" : " synthesis, no files")],
       ["Degrees", "M.S. CS @ UT Arlington · B.Tech CS @ Acropolis"],
@@ -243,7 +243,7 @@
   CMD.date   = function(){ say(esc(new Date().toString())); };
   CMD.uptime = function(){ say("up " + uptime()); };
   CMD.pwd    = function(){ say("/home/nitin"); };
-  CMD.uname  = function(){ say("HY-OS 1.0 web javascript"); };
+  CMD.uname  = function(){ say("NSR-OS 1.0 web javascript"); };
   CMD.echo   = function(args){ say(esc(args.join(" "))); };
   CMD.clear  = function(){ tOut.innerHTML = ""; };
   CMD.history = function(){
@@ -320,7 +320,7 @@
     if(k === "terminal") setTimeout(function(){ tIn.focus(); }, 0);
   };
 
-  say('HY-OS 1.0  ·  hysh 1.0', "head");
+  say('NSR-OS 1.0  ·  nsrsh 1.0', "head");
   say('Type <b>help</b> for a list of commands, or <b>neofetch</b> to show off.', "dim");
   say("");
 
@@ -528,7 +528,7 @@
   });
 
 /* ------------------------------------------------------------------
-   HY-OS · PAC-MAN
+   NSR-OS · PAC-MAN
    Self-contained tile-based Pac-Man. No globals beyond what the host
    IIFE closes over, no DOM per tile, one rAF loop that only runs while
    the window is actually on screen.

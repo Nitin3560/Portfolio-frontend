@@ -15,7 +15,7 @@
     ["tape",     "B-SIDE",     "A fourth tape that was never printed on the J-card."],
     ["crt",      "CRT",        "The monitor is twenty years older than it looks."],
     ["root",     "ROOT",       "Ask for permission often enough and the shell relents."],
-    ["hidden",   "HYSH",       "The shell has a flag it does not advertise."],
+    ["hidden",   "NSRSH",       "The shell has a flag it does not advertise."],
     ["maze",     "MAZE",       "Clear a whole maze. All 240 pellets, four ghosts."],
     ["midnight", "03:17 AM",   "Be here in the small hours, local time."],
     ["tokyo",    "TOKYO",      "The tray clock keeps another city's time."],
@@ -73,7 +73,7 @@
     if(eggCount() === EGGS.length){
       setTimeout(function(){
         toast("Hidden layer", "COMPLETE", "All " + EGGS.length + " of them. Type " +
-          "“hysh --hidden” in the terminal for the board.");
+          "“nsrsh --hidden” in the terminal for the board.");
       }, 7400);
     }
     return true;
@@ -181,7 +181,7 @@
   function sysReport(){
     var d = document.documentElement;
     var lines = [
-      ["build",     "HY-OS 1.0 · one static file, no framework, no backend"],
+      ["build",     "NSR-OS 1.0 · one static file, no framework, no backend"],
       ["source",    "36 hand-split parts, concatenated at build time"],
       ["document",  fmt(Math.round(d.outerHTML.length / 1024)) + " KB in this tab"],
       ["viewport",  fmt(window.innerWidth) + " × " + fmt(window.innerHeight) +
@@ -286,7 +286,7 @@
   function enterDev(){
     if(devMode) return;
     devMode = true;
-    PS1 = "root@hy-os:~#";
+    PS1 = "root@nsr-os:~#";
     var ps = document.getElementById("ps1");
     if(ps) ps.textContent = PS1;
     found("root");
@@ -327,14 +327,14 @@
 
   CMD.attic = function(){
     open("attic");
-    say("opening \\HAO\\ATTIC …", "dim");
+    say("opening \\NSR\\ATTIC …", "dim");
   };
 
-  CMD.eggs = function(){ CMD.hysh(["--hidden"]); };
+  CMD.eggs = function(){ CMD.nsrsh(["--hidden"]); };
 
-  CMD.hysh = function(args){
+  CMD.nsrsh = function(args){
     if((args[0] || "") !== "--hidden"){
-      say("hysh 1.0 — the shell this desktop runs.", "dim");
+      say("nsrsh 1.0 — the shell this desktop runs.", "dim");
       say("try <b>help</b>. or read the page source; it is not minified.", "dim");
       return;
     }
@@ -378,9 +378,9 @@
 
   /* ---------- a hint for whoever opens devtools ---------- */
   try{
-    console.log("%cHY-OS 1.0", "font:600 22px monospace;color:#E85A9B");
+    console.log("%cNSR-OS 1.0", "font:600 22px monospace;color:#E85A9B");
     console.log("%cHand-written. One file, no framework, no backend, no analytics.",
                 "color:#6FD6E8;font:13px monospace");
     console.log("%cThere is a hidden layer in here. The shell has an undocumented flag:" +
-                "  hysh --hidden", "color:#F5A657;font:13px monospace");
+                "  nsrsh --hidden", "color:#F5A657;font:13px monospace");
   }catch(e){}

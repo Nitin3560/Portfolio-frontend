@@ -1,4 +1,4 @@
-# hy-os — source layout
+# nsr-os — source layout
 
 The site **ships as one file**: `index.html`. That is deliberate — a single
 object on S3 means the deploy is atomic (never half-updated), there is no
@@ -53,7 +53,7 @@ one returns 200 with the right content type.
                            50-dialogs    start menu, compose, clock
                            60-wallpaper  the city-pop canvas
                            70-player     Web Audio + file playback
-                           80-terminal   hysh
+                           80-terminal   nsrsh
                            90-pacman     game engine + window wiring
                            95-recruiter  notification + Recruiter View
                            99-boot       boot sequence, start()

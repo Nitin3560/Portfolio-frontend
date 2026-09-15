@@ -41,7 +41,7 @@ PERSON = {
                    "Docker", "Python", "Distributed Systems",
                    "Retrieval-Augmented Generation", "Machine Learning"],
     "seeks": {"@type": "Demand",
-              "name": "Software engineering internship and full-time roles from May 2026"},
+              "name": "Software engineering internships and full-time roles"},
 }
 
 HEAD = """<!DOCTYPE html>
