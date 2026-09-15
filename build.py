@@ -68,8 +68,8 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:site_name" content="Nitin Singh Rathore Portfolio">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:image" content="{site}/og-image.png">
-<meta property="og:image:secure_url" content="{site}/og-image.png">
+<meta property="og:image" content="{site}/og-image-nsr.png">
+<meta property="og:image:secure_url" content="{site}/og-image-nsr.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -77,7 +77,7 @@ HEAD = """<!DOCTYPE html>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
-<meta name="twitter:image" content="{site}/og-image.png">
+<meta name="twitter:image" content="{site}/og-image-nsr.png">
 
 <script type="application/ld+json">
 {person}
