@@ -91,10 +91,10 @@
   };
 
   var PROJECTS = [
-    ["YoMeets", "TypeScript · Node.js · PostgreSQL/pgvector · Deepgram", "Nitin3560/YoMeets",
-     "Real-time AI meeting assistant with RAG precision near 94% and p95 latency under 3s."],
     ["CareerOS", "FastAPI · Next.js · PostgreSQL · Redis/RQ · Docker", "Nitin3560/careeros",
      "Search and ranking platform indexing 31,200+ docs with median lookup cut from 690ms to 3.5ms."],
+    ["YoMeets", "TypeScript · Node.js · PostgreSQL/pgvector · Deepgram", "Nitin3560/YoMeets",
+     "Real-time AI meeting assistant with RAG precision near 94% and p95 latency under 3s."],
     ["CloudQueue", "Python · Redis · AWS · Docker · Kubernetes · Terraform", "",
      "Distributed scraping queue processing about 1.4k tasks/sec with duplicate-safe recovery."],
     ["TwinGuard", "ROS 2 · PX4 SITL · Gazebo · C++17 · BehaviorTree.CPP · Nav2", "Nitin3560/TwinGuard",
