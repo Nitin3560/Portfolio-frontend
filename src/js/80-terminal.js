@@ -82,11 +82,11 @@
   };
 
   var PROJECTS = [
-    ["YoMeets", "TypeScript · Node.js · PostgreSQL/pgvector · Deepgram", "Nitin3560",
+    ["YoMeets", "TypeScript · Node.js · PostgreSQL/pgvector · Deepgram", "Nitin3560/YoMeets",
      "Real-time AI meeting assistant with RAG precision near 94% and p95 latency under 3s."],
-    ["CareerOS", "FastAPI · Next.js · PostgreSQL · Redis/RQ · Docker", "Nitin3560",
+    ["CareerOS", "FastAPI · Next.js · PostgreSQL · Redis/RQ · Docker", "Nitin3560/careeros",
      "Search and ranking platform indexing 31,200+ docs with median lookup cut from 690ms to 3.5ms."],
-    ["CloudQueue", "Python · Redis · AWS · Docker · Kubernetes · Terraform", "Nitin3560",
+    ["CloudQueue", "Python · Redis · AWS · Docker · Kubernetes · Terraform", "",
      "Distributed scraping queue processing about 1.4k tasks/sec with duplicate-safe recovery."]
   ];
 
@@ -153,8 +153,9 @@
       say((i ? "" : "") + "<b>" + esc(p[0]) + "</b>");
       say('<span class="dim">' + esc(p[1]) + "</span>");
       say(esc(p[3]));
-      say('  → <a href="https://github.com/' + p[2] +
+      if(p[2]) say('  → <a href="https://github.com/' + p[2] +
           '" target="_blank" rel="noopener noreferrer">github.com/' + p[2] + "</a>");
+      else say("  → Repository available on request", "dim");
       if(i < PROJECTS.length - 1) say("");
     });
   };
