@@ -17,7 +17,7 @@ Usage:
 import base64, io, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SITE = os.environ.get("SITE_URL", "").rstrip("/")
+SITE = os.environ.get("SITE_URL", "https://nitinsinghrathore.us").rstrip("/")
 TITLE = "Nitin Singh Rathore — Software Engineer"
 DESC = ("Software engineer in Arlington, Texas. M.S. Computer Science at UT Arlington, Dec 2026. "
         "Backend systems, AWS, and applied AI — presented as a retro desktop.")
@@ -73,7 +73,7 @@ HEAD = """<!DOCTYPE html>
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="A retro desktop portfolio: windows for README, Projects and a music player over a city-pop skyline.">
+<meta property="og:image:alt" content="A retro NSR-OS portfolio preview over a purple city-pop skyline.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
