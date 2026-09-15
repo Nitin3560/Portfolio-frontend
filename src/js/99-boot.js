@@ -6,8 +6,10 @@
     '',
     'Checking memory ................ 640K OK',
     'Mounting /education ............ UT Arlington, Acropolis',
-    'Mounting /experience ........... 1 role',
-    'Loading /projects .............. 3 items',
+    'Mounting /experience ........... 3 roles',
+    'Loading /projects .............. 4 items',
+    'Loading /research .............. UAV autonomy',
+    'Loading /thesis ................ in progress',
     'Starting network ............... <span class="mg">nxr3560@mavs.uta.edu</span>',
     '',
     'Ready.'
@@ -23,14 +25,14 @@
   var idleTimer = null, attractOn = false;
 
   var AT_LINES = [
-    "ＨＹ－ＯＳ　１．０",
+    "ＮＳＲ－ＯＳ　１．０",
     "M.S. COMPUTER SCIENCE · UT ARLINGTON · DEC 2026",
     "BACKEND · AWS · KUBERNETES · APPLIED AI",
-    "ＡＩＦＲＩＥＮＤＳ　—　AGENTIC RAG, TOKEN-BY-TOKEN STREAMING",
-    "ＳＭＡＲＴ　ＰＨＯＴＯ　ＡＬＢＵＭ　—　SERVERLESS IMAGE SEARCH",
-    "ＤＩＮＩＮＧ　ＣＯＮＣＩＥＲＧＥ　—　1,600+ MANHATTAN RESTAURANTS",
+    "ＣＡＲＥＥＲＯＳ　—　SEARCH AND RANKING",
+    "ＹＯＭＥＥＴＳ　—　REAL-TIME AI MEETING ASSISTANT",
+    "ＴＷＩＮＧＵＡＲＤ　—　TRUST-AWARE UAV AUTONOMY",
     "ＰＡＣ－ＭＡＮ　プレイできます",
-    "SEEKING SWE ROLES FROM MAY 2026 · nxr3560@mavs.uta.edu",
+    "SEEKING SOFTWARE ENGINEERING ROLES · nxr3560@mavs.uta.edu",
     "タッチして　つづける"
   ];
 

@@ -85,6 +85,18 @@
       "  · Wrote JUnit unit/integration tests that eliminated 20+ pre-production bugs across 3 release cycles.",
       "  · Shipped 4 backend features through Git PR workflows for 2 major quarterly releases."
     ],
+    "research.txt": [
+      "Reliable Coordination for Autonomous UAV Networks",
+      "  · UAV autonomy research around coordination, trust-aware supervision, and validation.",
+      "  · Uses ROS 2, PX4 SITL, Gazebo, simulation, and repeatable test pipelines.",
+      "  · Connects TwinGuard-style trust estimation with multi-agent UAV behavior."
+    ],
+    "thesis.txt": [
+      "M.S. Thesis | In Progress     Jan 2025 – Dec 2026",
+      "  · Focus: reliable autonomous UAV systems.",
+      "  · Emphasis: coordination, fault tolerance, and simulation-backed validation.",
+      "  · Goal: robust autonomy when localization, communication, or agent state is uncertain."
+    ],
     "contact.txt": [
       "email     nxr3560@mavs.uta.edu",
       "github    github.com/Nitin3560",
@@ -107,7 +119,7 @@
   var WINKEYS = {
     readme:"about", about:"about", projects:"projects", experience:"experience",
     exp:"experience", skills:"skills", education:"education", edu:"education",
-    contact:"contact", resume:"resume", player:"player", music:"player",
+    contact:"contact", resume:"resume", research:"research", thesis:"thesis", player:"player", music:"player",
     terminal:"terminal", term:"terminal", pacman:"pacman", pac:"pacman", game:"pacman"
   };
 
@@ -127,8 +139,8 @@
       ["whoami",    "who runs this machine"],
       ["ls",        "list the files on this desktop"],
       ["cat",       "print a file — try <b>cat readme.txt</b>"],
-      ["projects",  "the three things I built, with repo links"],
-      ["open",      "open a window — <b>open projects</b>, <b>open player</b>"],
+      ["projects",  "projects I built, with repo links"],
+      ["open",      "open a window — <b>open research</b>, <b>open thesis</b>"],
       ["play",      "start the music · also <b>pause</b>, <b>next</b>, <b>mute</b>"],
       ["chiptune",  "play live FM synthesis instead of files · <b>chiptune on</b>"],
       ["email",     "open a message to me"],
@@ -147,7 +159,7 @@
   };
 
   CMD.ls = function(){
-    var names = Object.keys(FILES).concat(["projects/", "resume.pdf"]);
+    var names = Object.keys(FILES).concat(["projects/", "research/", "thesis/", "resume.pdf"]);
     say(names.map(function(n){ return esc(n); }).join("   "));
   };
 
@@ -155,6 +167,8 @@
     var name = (args[0] || "").toLowerCase();
     if(!name){ say("cat: give me a filename. try <b>ls</b>", "err"); return; }
     if(name === "projects" || name === "projects/"){ CMD.projects(); return; }
+    if(name === "research" || name === "research/"){ name = "research.txt"; }
+    if(name === "thesis" || name === "thesis/"){ name = "thesis.txt"; }
     var f = FILES[name] || FILES[name + ".txt"];
     if(!f){ say("cat: " + esc(name) + ": no such file", "err"); return; }
     sayOverride = name + ": " + f.filter(Boolean).length + " lines. Read them in the terminal output.";
@@ -162,7 +176,7 @@
   };
 
   CMD.projects = function(){
-    sayOverride = "3 projects listed: " + PROJECTS.map(function(x){ return x[0]; }).join(", ");
+    sayOverride = PROJECTS.length + " projects listed: " + PROJECTS.map(function(x){ return x[0]; }).join(", ");
     PROJECTS.forEach(function(p, i){
       say((i ? "" : "") + "<b>" + esc(p[0]) + "</b>");
       say('<span class="dim">' + esc(p[1]) + "</span>");

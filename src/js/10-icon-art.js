@@ -38,6 +38,13 @@
       '<rect x="12" y="1" width="1" height="14" fill="#413A52"/><rect x="5" y="3" width="6" height="3" fill="#E85A9B"/>'+
       '<rect x="5" y="8" width="6" height="1" fill="#514A63"/><rect x="5" y="10" width="6" height="1" fill="#514A63"/>'+
       '<rect x="5" y="12" width="3" height="1" fill="#514A63"/>')
+
+    ,research: svg('<rect x="2" y="2" width="12" height="12" fill="#221A46"/><rect x="3" y="3" width="10" height="2" fill="#6B3FA0"/>'+ 
+      '<rect x="4" y="7" width="2" height="2" fill="#6FD6E8"/><rect x="7" y="6" width="2" height="2" fill="#F5A657"/><rect x="10" y="8" width="2" height="2" fill="#E85A9B"/>'+ 
+      '<rect x="5" y="8" width="3" height="1" fill="#FBFAFD"/><rect x="8" y="7" width="3" height="1" fill="#FBFAFD"/><rect x="6" y="11" width="4" height="1" fill="#9A76C9"/>')
+    ,thesis: svg('<rect x="3" y="1" width="10" height="14" fill="#FBFAFD"/><rect x="3" y="1" width="10" height="2" fill="#3A2668"/>'+ 
+      '<rect x="5" y="5" width="6" height="1" fill="#514A63"/><rect x="5" y="7" width="6" height="1" fill="#514A63"/><rect x="5" y="9" width="5" height="1" fill="#514A63"/>'+ 
+      '<rect x="5" y="12" width="3" height="1" fill="#E85A9B"/><rect x="11" y="11" width="2" height="3" fill="#F5A657"/>')
     ,recruiter: svg('<rect x="1" y="2" width="14" height="11" fill="#FBFAFD"/><rect x="1" y="2" width="14" height="2" fill="#3A2668"/><rect x="3" y="6" width="10" height="1" fill="#514A63"/><rect x="3" y="8" width="10" height="1" fill="#514A63"/><rect x="3" y="10" width="6" height="1" fill="#E85A9B"/><rect x="11" y="9" width="4" height="4" fill="#F5A657"/>')
     ,terminal: svg('<rect x="1" y="2" width="14" height="12" fill="#0B0718"/><rect x="1" y="2" width="14" height="2" fill="#3A2668"/><rect x="3" y="7" width="2" height="1" fill="#6FD6E8"/><rect x="4" y="8" width="2" height="1" fill="#6FD6E8"/><rect x="3" y="9" width="2" height="1" fill="#6FD6E8"/><rect x="7" y="11" width="5" height="1" fill="#F5A657"/>')
     ,player: svg('<rect x="1" y="3" width="14" height="10" fill="#E85A9B"/><rect x="2" y="4" width="12" height="4" fill="#FBFAFD"/><rect x="3" y="5" width="10" height="1" fill="#C7C3CF"/><rect x="4" y="9" width="8" height="3" fill="#221A46"/><rect x="5" y="10" width="2" height="1" fill="#6FD6E8"/><rect x="9" y="10" width="2" height="1" fill="#6FD6E8"/><rect x="1" y="12" width="14" height="1" fill="#8A2F70"/>')
@@ -52,7 +59,7 @@
     {k:"linkedin", label:"LinkedIn", url:"https://www.linkedin.com/in/nitin-singh-rathore/"}
   ];
   var LABEL = {
-    about:"README.TXT", experience:"Experience", projects:"Projects",
+    about:"README.TXT", experience:"Experience", projects:"Projects", research:"Research", thesis:"Thesis",
     skills:"Skills", education:"Education", contact:"Contact", resume:"Resume.pdf",
     player:"Player", terminal:"Terminal", pacman:"Pac-Man", recruiter:"Recruiter View",
     attic:"Attic", dex:"Signal"
@@ -60,7 +67,7 @@
   /* Reading order is the point: a recruiter meets the work before the toys.
      The terminal, player and game stay — they are the evidence — but they no
      longer greet you before the résumé does. */
-  var WORK = ["about","projects","experience","skills","education","resume","contact","recruiter"];
+  var WORK = ["about","projects","research","thesis","experience","skills","education","resume","contact","recruiter"];
   var PLAY = ["terminal","player","pacman"];
   var ORDER = WORK.concat(PLAY);
   /* The attic is a window the shell has to know about — taskbar button, fold
