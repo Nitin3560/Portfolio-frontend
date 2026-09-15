@@ -66,6 +66,11 @@
       "  Software Engineering, Discrete Mathematics, Computer Organization & Architecture"
     ],
     "experience.txt": [
+      "University of Texas at Arlington | Graduate Teaching Assistant · Arlington, TX     Jan 2025 – present",
+      "  · Support CS coursework through labs, mentoring, grading, and technical explanations.",
+      "  · Help students with programming, debugging, data structures, and systems fundamentals.",
+      "  · Continue research work on reliable coordination for autonomous UAV networks.",
+      "",
       "WERBOOZ Pvt. Ltd | Software Engineer · Indore, India     Sep 2023 – Oct 2024",
       "  · Built and maintained production backend services for enterprise apps.",
       "  · Optimized database queries and service logic to reduce avoidable latency.",
@@ -75,12 +80,7 @@
       "  · Improved module-level processing efficiency by 15% across 4 Java/SQL data-access modules.",
       "  · Reduced average query execution time from about 320ms to 275ms.",
       "  · Wrote JUnit unit/integration tests that eliminated 20+ pre-production bugs across 3 release cycles.",
-      "  · Shipped 4 backend features through Git PR workflows for 2 major quarterly releases.",
-      "",
-      "University of Texas at Arlington | Graduate Teaching Assistant · Arlington, TX     Jan 2025 – present",
-      "  · Support CS coursework through labs, mentoring, grading, and technical explanations.",
-      "  · Help students with programming, debugging, data structures, and systems fundamentals.",
-      "  · Continue research work on reliable coordination for autonomous UAV networks."
+      "  · Shipped 4 backend features through Git PR workflows for 2 major quarterly releases."
     ],
     "contact.txt": [
       "email     nxr3560@mavs.uta.edu",
