@@ -89,7 +89,7 @@
       "email     nxr3560@mavs.uta.edu",
       "github    github.com/Nitin3560",
       "linkedin  linkedin.com/in/nitin-singh-rathore",
-      "based in  Brooklyn, New York"
+      "based in  Arlington, Texas"
     ]
   };
 
@@ -141,8 +141,8 @@
   };
 
   CMD.whoami = function(){
-    say("hao — software engineer, Brooklyn NY.");
-    say("M.S. Computer Engineering @ NYU, May 2026. Backend, AWS, applied AI.");
+    say("Nitin Singh Rathore — software engineer, Arlington TX.");
+    say("M.S. Computer Science @ UT Arlington, Dec 2026. Backend, distributed systems, applied AI.");
     say('Seeking intern and full-time SWE roles starting May 2026.', "dim");
   };
 
@@ -216,15 +216,15 @@
       "██  ██     █   "
     ];
     var info = [
-      ["", "<b>hao@hy-os</b>"],
+      ["", "<b>nitin@portfolio</b>"],
       ["", '<span class="dim">─────────</span>'],
       ["OS",      "HY-OS 1.0 (runs in your browser)"],
-      ["Host",    "Brooklyn, New York"],
+      ["Host",    "Arlington, Texas"],
       ["Kernel",  "vanilla JS — no framework, one file"],
       ["Shell",   "hysh 1.0"],
       ["Uptime",  uptime()],
       ["Audio",   "Web Audio" + (fileMode ? " + audio files" : " synthesis, no files")],
-      ["Degrees", "M.S. CE @ NYU · 2× B.S. @ UW"],
+      ["Degrees", "M.S. CS @ UT Arlington · B.Tech CS @ Acropolis"],
       ["Contact", "nxr3560@mavs.uta.edu"]
     ];
     var n = Math.max(art.length, info.length);
@@ -242,7 +242,7 @@
 
   CMD.date   = function(){ say(esc(new Date().toString())); };
   CMD.uptime = function(){ say("up " + uptime()); };
-  CMD.pwd    = function(){ say("/home/hao"); };
+  CMD.pwd    = function(){ say("/home/nitin"); };
   CMD.uname  = function(){ say("HY-OS 1.0 web javascript"); };
   CMD.echo   = function(args){ say(esc(args.join(" "))); };
   CMD.clear  = function(){ tOut.innerHTML = ""; };

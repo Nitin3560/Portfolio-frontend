@@ -18,19 +18,19 @@ import base64, io, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.environ.get("SITE_URL", "").rstrip("/")
-TITLE = "Hao Yang — Software Engineer"
-DESC = ("Software engineer in Brooklyn, NY. M.S. Computer Engineering at NYU, May 2026. "
+TITLE = "Nitin Singh Rathore — Software Engineer"
+DESC = ("Software engineer in Arlington, Texas. M.S. Computer Science at UT Arlington, Dec 2026. "
         "Backend systems, AWS, and applied AI — presented as a retro desktop.")
 
 PERSON = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Hao Yang",
+    "name": "Nitin Singh Rathore",
     "url": SITE + "/index.html",
     "jobTitle": "Software Engineer",
     "email": "mailto:nxr3560@mavs.uta.edu",
-    "address": {"@type": "PostalAddress", "addressLocality": "Brooklyn",
-                "addressRegion": "NY", "addressCountry": "US"},
+    "address": {"@type": "PostalAddress", "addressLocality": "Arlington",
+                "addressRegion": "TX", "addressCountry": "US"},
     "alumniOf": [
         {"@type": "CollegeOrUniversity", "name": "University of Texas at Arlington"},
         {"@type": "CollegeOrUniversity", "name": "Acropolis Institute of Technology & Research"},
@@ -51,7 +51,7 @@ HEAD = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta name="author" content="Hao Yang">
+<meta name="author" content="Nitin Singh Rathore">
 <meta name="theme-color" content="#221A46">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -65,7 +65,7 @@ HEAD = """<!DOCTYPE html>
      no preview card at all. Change SITE below if the domain ever moves. -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="{site}/index.html">
-<meta property="og:site_name" content="HY-OS — Hao Yang">
+<meta property="og:site_name" content="Nitin Singh Rathore Portfolio">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="{site}/og-image.png">
