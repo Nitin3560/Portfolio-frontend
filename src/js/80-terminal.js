@@ -40,18 +40,19 @@
       "",
       "Backend engineering, distributed systems, and practical AI.",
       "",
-      "I’m pursuing an M.S. in Computer Science at the University of Texas at Arlington, with graduation expected in December 2026. My work spans backend engineering, distributed systems, and applied AI. At WERBOOZ, I built and maintained production services, optimized database queries, and integrated APIs across enterprise applications.",
+      "I’m pursuing an M.S. in Computer Science at the University of Texas at Arlington, with graduation expected in December 2026. At WERBOOZ, I built cloud-native payment and account services, distributed data pipelines, and reliable backend systems using Python, SQL, AWS, and Kubernetes.",
       "",
-      "My projects turn that experience into practical tools: YoMeets combines real-time AI meeting assistance with workflow automation, CareerOS focuses on search and ranking, and CloudQueue processes web-scraping jobs through distributed workers. I also work as a Graduate Teaching Assistant at UT Arlington and research reliable coordination for autonomous UAV networks.",
+      "CareerOS processes 4.5M+ job postings with fault-tolerant ingestion and database-backed matching. YoMeets turns live meetings into reliable agent actions with persistent memory. As a Graduate Teaching Assistant at UT Arlington, I build Python-based grading and testing tools for courses serving 100+ students.",
       "",
       "Open to software engineering internships and full-time opportunities."
-],
+    ],
     "skills.txt": [
-      "languages   C/C++, Python, Java, Go, SQL, JavaScript, HTML/CSS, C#, ARM asm, YAML",
-      "web/devops  AWS, GCP, Docker, Kubernetes, REST, Redis, Git, PostgreSQL, MySQL, JWT",
-      "frameworks  FastAPI, Flask, Django, Spring Boot, React, Vue 3, Unity3D",
-      "ml          PyTorch, TensorFlow, Keras, NumPy, Pandas, MLflow",
-      "dl systems  CUDA, cuDNN, TorchScript, GPU profiling, inference optimization"
+      "Languages: Java, Python, C++, Go, TypeScript, JavaScript, SQL",
+      "Backend & APIs: Spring Boot, FastAPI, Node.js, REST APIs, SOAP, Microservices, API Design, OAuth 2.0",
+      "Databases & Distributed Systems: PostgreSQL, MySQL, Redis, Kafka, Caching, Async Processing, Idempotency",
+      "AI & Machine Learning: PyTorch, Scikit-learn, LLM APIs, RAG, Embeddings, Vector Search, pgvector, AI Agents",
+      "Cloud & DevOps: AWS, GCP, Kubernetes, Docker, Linux, GitHub Actions, CI/CD, CloudWatch, Git",
+      "Frontend & Data Engineering: React, Next.js, Apache Spark, Apache Airflow, Snowflake, ETL, Stream Processing"
     ],
     "education.txt": [
       "University of Texas at Arlington     Jan 2025 – Dec 2026 (expected)",
@@ -66,24 +67,19 @@
       "  Software Engineering, Discrete Mathematics, Computer Organization & Architecture"
     ],
     "experience.txt": [
-      "University of Texas at Arlington | Graduate Teaching Assistant · Arlington, TX     Jan 2025 – present",
-      "  · Support CS coursework through labs, mentoring, grading, and technical explanations.",
-      "  · Help students with programming, debugging, data structures, and systems fundamentals.",
-      "  · Continue research work on reliable coordination for autonomous UAV networks.",
+      "University of Texas at Arlington | Graduate Teaching Assistant · Arlington, Texas     Aug 2025 – present",
+      "  · Built Python-based grading and testing tools using AI-assisted coding for implementation and test generation, automating validation for 50+ weekly assignments across C/C++, Data Science, and Machine Learning courses serving 100+ students.",
       "",
-      "WERBOOZ Pvt. Ltd | Software Engineer · Indore, India     Sep 2023 – Oct 2024",
-      "  · Architected and maintained 6 Java/Apex backend services across 3 enterprise clients.",
-      "  · Reduced manual processing overhead by 40% with modular service boundaries.",
-      "  · Built REST/SOAP integrations across 5+ systems with 99.8% production uptime.",
-      "  · Optimized 15+ SOQL/SQL queries, cutting high-latency query times by 35%.",
-      "  · Authored 500+ JUnit/Postman/Tosca test cases and reduced QA cycle time by 2 days per sprint.",
-      "  · Resolved 12 critical incidents through logs and root-cause debugging within 2-hour SLAs.",
+      "WERBOOZ Pvt. Ltd | Software Engineer · Indore, India     Sep 2022 – Oct 2024",
+      "  · Architected payment and account services using Python, SQL, and AWS, processing 15M+ monthly transactions through REST APIs and event-driven workflows while reducing p95 latency by 38% through query optimization, caching, and service refactoring.",
+      "  · Engineered distributed fraud and risk data pipelines using Apache Spark, Kafka, Airflow, and Snowflake, processing 1TB+ of daily banking events while improving fraud detection accuracy by 19% and reducing batch processing time by 47% through schema optimization and resilient retries.",
+      "  · Designed fault-tolerant transaction APIs using Python, AWS, and PostgreSQL, implementing idempotency, asynchronous processing, and distributed data validation to reduce duplicate transactions by 42% and improve throughput by 35%.",
+      "  · Optimized containerized microservices on Kubernetes, improving production uptime to 99.95% and reducing post-release defects by 32% through automated testing, observability, and CI/CD improvements.",
+      "  · Strengthened integration testing, production monitoring, and service validation, accelerating release cycles by 55% across distributed production services.",
       "",
-      "WERBOOZ Pvt. Ltd | Software Developer Intern · Indore, India     Feb 2023 – Sep 2023",
-      "  · Improved module-level processing efficiency by 15% across 4 Java/SQL data-access modules.",
-      "  · Reduced average query execution time from about 320ms to 275ms.",
-      "  · Wrote JUnit unit/integration tests that eliminated 20+ pre-production bugs across 3 release cycles.",
-      "  · Shipped 4 backend features through Git PR workflows for 2 major quarterly releases."
+      "WERBOOZ Pvt. Ltd | Software Engineer Intern · Indore, India     May 2022 – Sep 2022",
+      "  · Developed cloud-native order orchestration services using Python, AWS, Docker, and Kafka, processing 400K+ monthly orders while reducing checkout-to-fulfillment latency by 38% through asynchronous workflows and backend optimization.",
+      "  · Engineered inventory and reconciliation pipelines using Apache Airflow, Spark, and Google Cloud, improving inventory accuracy from 92% to 98.7% and reducing reconciliation errors by 45% through data validation and pipeline optimization."
     ],
     "research.txt": [
       "Reliable Coordination for Autonomous UAV Networks",
@@ -111,9 +107,9 @@
 
   var PROJECTS = [
     ["CareerOS", "FastAPI · Next.js · PostgreSQL · Redis/RQ · Docker", "Nitin3560/careeros",
-     "Search and ranking platform indexing 31,200+ docs with median lookup cut from 690ms to 3.5ms."],
-    ["YoMeets", "TypeScript · Node.js · PostgreSQL/pgvector · Deepgram", "Nitin3560/YoMeets",
-     "Real-time AI meeting assistant with RAG precision near 94% and p95 latency under 3s."],
+     "Job intelligence platform processing 4.5M+ postings from 13K+ companies across 11 ATS providers; 197x faster matching (690ms to 3.5ms)."],
+    ["YoMeets", "TypeScript · Node.js · PostgreSQL/pgvector · Deepgram", "Nitin3560/Yomeets",
+     "Agentic AI assistant: sub-3s p95 task detection across 50+ meetings; 98% success across 150+ actions; 95% Recall@5 and 94% citation accuracy across 300+ queries; 80% fewer context tokens."],
     ["CloudQueue", "Python · Redis · AWS · Docker · Kubernetes · Terraform", "",
      "Distributed scraping queue processing about 1.4k tasks/sec with duplicate-safe recovery."],
     ["TwinGuard", "ROS 2 · PX4 SITL · Gazebo · C++17 · BehaviorTree.CPP · Nav2", "Nitin3560/TwinGuard",

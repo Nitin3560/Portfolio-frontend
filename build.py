@@ -20,7 +20,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.environ.get("SITE_URL", "https://www.nitinsinghrathore.us").rstrip("/")
 TITLE = "Nitin Singh Rathore — Software Engineer"
 DESC = ("Software engineer in Arlington, Texas. M.S. Computer Science at UT Arlington, Dec 2026. "
-        "Backend systems, AWS, and applied AI — presented as a retro desktop.")
+        "Cloud-native payment infrastructure, distributed data pipelines, and applied AI — presented as a retro desktop.")
 
 PERSON = {
     "@context": "https://schema.org",
@@ -39,7 +39,8 @@ PERSON = {
                "https://www.linkedin.com/in/nitin-singh-rathore/"],
     "knowsAbout": ["Backend Engineering", "Amazon Web Services", "Kubernetes",
                    "Docker", "Python", "Distributed Systems",
-                   "Retrieval-Augmented Generation", "Machine Learning"],
+                   "Retrieval-Augmented Generation", "Machine Learning", "Apache Kafka",
+                   "Apache Spark", "Apache Airflow", "PostgreSQL", "FastAPI", "Payment Systems"],
     "seeks": {"@type": "Demand",
               "name": "Software engineering internships and full-time roles"},
 }
@@ -141,7 +142,7 @@ def build(dst="index.html", img_out="resume.jpg", write=True, tracks=True):
     body, moved = re.subn(r"^<title>.*?</title>\n", "", body, count=1, flags=re.S)
     notes.append("title moved to <head>: %s" % bool(moved))
 
-    m = re.search(r'src="data:image/jpeg;base64,([A-Za-z0-9+/=]+)"', body)
+    m = re.search(r'src="data:image/jpeg;base64,\s*([A-Za-z0-9+/=]+)"', body)
     if m:
         raw = base64.b64decode(m.group(1))
         if write:
